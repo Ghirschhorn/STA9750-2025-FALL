@@ -1,0 +1,30 @@
+---
+title: "Academic Portfolio"
+---
+
+Hello! My name is Tova Hirschhorn. I hold an MBA and am currently pursuing a Master of Science in Business Analytics at [Zicklin School of Business](https://zicklin.baruch.cuny.edu/) - right here in my hometown of New York City.
+
+I am passionate about data analysis, statistics, and quantitative methods to solve real-world business problems.
+
+This website showcases my course projects and assignments from STA 9750 - Fall 2025. Feel free to explore all the data analysis tools and techniques I learned and applied throughout the semester!
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+if(!require("leaflet")){
+    options(repos=c(CRAN="https://cloud.r-project.org"))
+    install.packages("leaflet")
+    stopifnot(require("leaflet"))
+}
+
+baruch_longitude <- -73.98333
+baruch_latitude  <- +40.75028
+
+leaflet() |>
+  addTiles() |>
+  setView(baruch_longitude, baruch_latitude, zoom=17) |>
+  addPopups(baruch_longitude, baruch_latitude, 
+            "I am a Master's student at <b>Baruch College</b>!")
+```
