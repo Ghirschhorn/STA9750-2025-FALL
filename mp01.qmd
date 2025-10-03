@@ -1,33 +1,38 @@
 
 ---
 title: MP01 - NETFLIX BY THE NUMBERS
-format: html
-toc: true
+date: "03 October 2025"
+format: 
+  html:
+    code-fold: true
+    code-tools: true
+    toc: true
+    toc-depth: 3
 execute:
   echo: false
   warning: false
   message: false
-  
----
 
+---
+  
 ```{r,include=FALSE}
 if(!dir.exists(file.path("data", "mp01"))){
-    dir.create(file.path("data", "mp01"), showWarnings=FALSE, recursive=TRUE)
+  dir.create(file.path("data", "mp01"), showWarnings=FALSE, recursive=TRUE)
 }
 
 GLOBAL_TOP_10_FILENAME <- file.path("data", "mp01", "global_top10_alltime.csv")
 
 if(!file.exists(GLOBAL_TOP_10_FILENAME)){
-    download.file("https://www.netflix.com/tudum/top10/data/all-weeks-global.tsv", 
-                  destfile=GLOBAL_TOP_10_FILENAME)
+  download.file("https://www.netflix.com/tudum/top10/data/all-weeks-global.tsv", 
+                destfile=GLOBAL_TOP_10_FILENAME)
 }
 
 COUNTRY_TOP_10_FILENAME <- file.path("data", "mp01", "country_top10_alltime.csv")
 
 
 if(!file.exists(COUNTRY_TOP_10_FILENAME)){
-    download.file("https://www.netflix.com/tudum/top10/data/all-weeks-countries.tsv", 
-                  destfile=COUNTRY_TOP_10_FILENAME)
+  download.file("https://www.netflix.com/tudum/top10/data/all-weeks-countries.tsv", 
+                destfile=COUNTRY_TOP_10_FILENAME)
 }
 ```
 ```{r, include=FALSE}
@@ -60,7 +65,7 @@ glimpse(COUNTRY_TOP_10)
 ```{r, include=FALSE}
 #Cleaning data to replace values with NA
 GLOBAL_TOP_10 <- GLOBAL_TOP_10 |>
-    mutate(season_title = if_else(season_title =="N/A", NA, season_title))
+  mutate(season_title = if_else(season_title =="N/A", NA, season_title))
 glimpse(GLOBAL_TOP_10)
 ```
 ```{r, include=FALSE}
@@ -70,20 +75,20 @@ library(stringr)
 
 #Reformatting columns and dropping season_title from table
 format_titles <- function(df){
-    colnames(df) <- str_replace_all(colnames(df), "_", " ") |> str_to_title()
-    df
+  colnames(df) <- str_replace_all(colnames(df), "_", " ") |> str_to_title()
+  df
 }
 
 
 #Reformatting column names, dropping season_title from table, converting runtime hours into minutes
 GLOBAL_TOP_10 |> 
-    mutate(`runtime_(minutes)` = round(60 * runtime)) |>
-    select(-season_title, 
-           -runtime) |>
-    format_titles() |>
-    head(n=20) |>
-    datatable(options=list(searching=FALSE, info=FALSE)) |>
-    formatRound(c('Weekly Hours Viewed', 'Weekly Views'))
+  mutate(`runtime_(minutes)` = round(60 * runtime)) |>
+  select(-season_title, 
+         -runtime) |>
+  format_titles() |>
+  head(n=20) |>
+  datatable(options=list(searching=FALSE, info=FALSE)) |>
+  formatRound(c('Weekly Hours Viewed', 'Weekly Views'))
 ```
 
 ```{r, echo=FALSE}
@@ -110,8 +115,8 @@ This mini-project laid the foundation for effective data analysis by providing p
 # II. NETFLIX TOP 10: ANALYZING GLOBAL AND COUNTRY-SPECIFIC TRENDS # 
 
 #### **Q1. NETFLIX'S GLOBAL REACH**
-
-Netflix operates in `r num_countries` different countries. Below is a random selection of nations where Netflix streams its content. Its presence across six continents highlights its impressive global reach and influence.
+  
+  Netflix operates in `r num_countries` different countries. Below is a random selection of nations where Netflix streams its content. Its presence across six continents highlights its impressive global reach and influence.
 
 ```{r, echo=FALSE}
 #Display a table with a random selection of 20 distinct countries that Netflix operates in, renaming columns for better aesthetic
@@ -121,7 +126,7 @@ COUNTRY_TOP_10 |>
   format_titles() |>  
   slice_sample (n=20) |>
   datatable(options = list(searching = FALSE, info = FALSE),
-    class = "compact stripe"
+            class = "compact stripe"
   )
 ```
 
@@ -135,7 +140,7 @@ top_non_english_film <- GLOBAL_TOP_10 |>
   ungroup()|>
   arrange(desc(total_number_weeks)) |>
   slice_head(n=1)
-  
+
 ```
 
 #### **Q2. LONGEST-CHARTING NON-ENGLISH FILM ON NETFLIX**
@@ -158,9 +163,9 @@ datatable(top_non_english_film_renamed,
             columnDefs = list(
               list(className = 'dt-center', targets ="_all")
             )
-            ),
+          ),
           class = "compact stripe"
-          )
+)
 
 ```
 
@@ -248,7 +253,7 @@ longest_tv_run <- COUNTRY_TOP_10 |>
 ```
 #### **Q5. TV SHOW WITH LONGEST RUN IN A COUNTRY'S TOP 10**
 
- *`r longest_tv_run$show_title`* was the longest-running TV show on Netflix's Country Top 10 rankings. This popular Spanish crime series resonated strongly with audiences in `r longest_tv_run$country_name`, remaining in the Top 10 for an impressive `r longest_tv_run$total_weeks` weeks.
+*`r longest_tv_run$show_title`* was the longest-running TV show on Netflix's Country Top 10 rankings. This popular Spanish crime series resonated strongly with audiences in `r longest_tv_run$country_name`, remaining in the Top 10 for an impressive `r longest_tv_run$total_weeks` weeks.
  
 ```{r, echo=FALSE}
 #Displaying results in a clean and compact table, renaming columns for better aesthetic
@@ -307,7 +312,7 @@ country_weeks_no_ops <- country_weeks |>
 #Displaying results in a clean and compact table, renaming and aligning columns for better aesthetic
 datatable(
   country_weeks_no_ops |>
-      mutate(last_week= format(last_week, "%B %d, %Y"))|>
+    mutate(last_week= format(last_week, "%B %d, %Y"))|>
     rename(
       `Country Name` = country_name,
       `Weeks Recorded` = weeks_recorded,
@@ -315,7 +320,7 @@ datatable(
     ),
   options = list(dom = 't', paging = FALSE, columnDefs = list(
     list(className = 'dt-center', targets = "_all"))
-    ),
+  ),
   class = "compact stripe"
 )
 ```
@@ -325,7 +330,7 @@ total_squidgame_hours <- GLOBAL_TOP_10 |>
   filter(str_detect(show_title, "Squid Game"), season_title != "Squid Game: The Challenge: Season 1")|>
   group_by(season_title) |>
   summarize(total_hours_watched=sum(weekly_hours_viewed, na.rm = TRUE))
-  
+
 #print(total_squidgame_hours)
 
 ```
@@ -395,7 +400,7 @@ debut_ranks <- us_films_number1 |>
     debut_week = min(week),
     debut_rank = weekly_rank[week == min(week)][1],
     ever_topped_1 = first(ever_topped_1))|>
-    ungroup()
+  ungroup()
 
 #Determine the films that make it to number 1 (without debuting at 1)
 films_reaching_to_1 <- debut_ranks |>
@@ -424,17 +429,17 @@ most_recent_topper_clean <- most_recent_topper |>
   mutate(week= format(week, "%B %d, %Y"))
 
 datatable(most_recent_topper_clean|>
-           rename( 
-            `Show Title` = show_title,
-            `Cumulative Weeks` = cumulative_weeks_in_top_10,
-            `Week Topped at #1` = week), 
+            rename( 
+              `Show Title` = show_title,
+              `Cumulative Weeks` = cumulative_weeks_in_top_10,
+              `Week Topped at #1` = week), 
           options= list (
             dom='t',
             paging = FALSE,
             columnDefs = list(list(className = 'dt-center', targets = "_all"))
           ),
           class = "compact stripe"
-          )
+)
 ```
 
 ```{r, echo=FALSE}
@@ -468,20 +473,21 @@ season_title <- top_show$season_title[1]
 #### **Q10. TV SHOW WITH WIDEST GLOBAL TOP 10 DEBUT**
 
 On `r format(debut_week, "%B %d, %Y")`, audiences in `r num_countries` countries received a holiday gift when *`r season_title`* finally premiered. Fans were eager to learn what would happen between Emily and Gabriel after the Season 1 cliffhanger ending!
+
 ```{r, echo=FALSE}
 #Displaying results in a clean and compact table, renaming and aligning columns for better aesthetic
 datatable(
   top_show |>
-      mutate(debut_week= format(debut_week, "%B %d, %Y"))|>
+    mutate(debut_week= format(debut_week, "%B %d, %Y"))|>
     rename( 
       `Show Title` = show_title,
       `Season Title` = season_title,
       `Debut Week` = debut_week,
       `Number of Countries` = num_countries,
-      ), 
+    ), 
   options = list(dom = 't', paging = FALSE, columnDefs = list(
     list(className = 'dt-center', targets = "_all"))
-    ),
+  ),
   class = "compact stripe"
 )
 ```
@@ -681,6 +687,3 @@ num_countries_where_Kshows_charted <- countries_where_Kshows_charted$n
 - Korean shows have charted in the Top 10 in `r num_countries_where_Kshows_charted ` different countries. The world went wild for *Squid Games*, which generated `r scales::comma(squid_game_hours)` hours of viewership and spent `r squid_game_weeks` weeks in the global top 10. Though widely considered the most iconic Korean drama to date, other beloved titles have also found major international success. *Extraordinary Attorney Woo*, for example, spent `r woo_weeks` weeks in the top 10 and earned `r scales::comma(woo_hours)` hours of global watch time.
 
 - The international success of Korean dramas is no accident. They have found a winning formula that resonates with audiences worldwide: diverse genres, relatable themes and characters, high production quality, and emotional authenticity. This combination proves that Korean content has gone beyond regional appeal. It is cementing its place in the global entertainment landscape.
-
-
-
