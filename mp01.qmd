@@ -92,15 +92,6 @@ GLOBAL_TOP_10 |>
   datatable(options=list(searching=FALSE, info=FALSE)) |>
   formatRound(c('Weekly Hours Viewed', 'Weekly Views'))
 ```
-
-```{r, echo=FALSE}
-#1. Number of different countries Netflix operates in
-num_countries <- COUNTRY_TOP_10 |>
-  distinct(country_name)|>
-  nrow()
-
-#num_countries
-```
 # I. EXECUTIVE SUMMARY # 
 Mini-Project 01 involved assuming the role of a data analyst supporting the Public Relations team at Netflix by applying foundational data analysis tools and techniques. The primary objective was to extract and analyze public data from Netflix's TuDum Top 10 list to identify key insights at both global and country-specific levels. These findings were then used to create three targeted press releases, highlighting regional and global content performance.
 
@@ -116,6 +107,14 @@ This mini-project laid the foundation for effective data analysis by providing p
 
 # II. NETFLIX TOP 10: ANALYZING GLOBAL AND COUNTRY-SPECIFIC TRENDS # 
 
+```{r, echo=FALSE}
+#1. Number of different countries Netflix operates in
+num_countries <- COUNTRY_TOP_10 |>
+  distinct(country_name)|>
+  nrow()
+
+#num_countries
+```
 #### **Q1. NETFLIX'S GLOBAL REACH**
   
   Netflix operates in `r num_countries` different countries. Below is a random selection of nations where Netflix streams its content. Its presence across six continents highlights its impressive global reach and influence.
