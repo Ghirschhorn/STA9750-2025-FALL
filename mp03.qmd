@@ -17,15 +17,16 @@ execute:
 ---
 ```{r setup-libraries, include=FALSE}
 # Load libraries
-library(RColorBrewer)
-library(httr2)
 library(sf)
 library(dplyr)
+library(readr)
 library(ggplot2)
 library(scales)
 library(tidyverse)
 library(viridis)
 library(leaflet)
+library(RColorBrewer)
+library(httr2)
 ```
 
 ## I. Executive Summary
@@ -248,7 +249,7 @@ highest_density <- tree_counts |>
 highest_density
 
 ```
-Q3. The choropleth map below highlights the New York City districts with the highest fractions of dead trees. Districts most affected by poor tree health are concentrated on Staten Island, as well as parts of Queens and Brooklyn, where over 14% of its trees are dead.
+Q3. The choropleth map below highlights the New York City districts with the highest fractions of dead trees. District 32, covering neighborhoods such as Howard Beach, Ozone Park, and the Rockaways shows the most severe conditions, with 14.5% of its trees classified as dead. Other highly affected districts are concentrated in neighborhoods on Staten Island, other parts of Queens, and Brooklyn, where dead-tree rates exceed 14%.
 
 ```{r, cache=TRUE, echo=TRUE, message=FALSE, warning=FALSE, results='hide'}
 #Task 4. Q3 - Determine which council district has the highest fraction of dead trees out of all trees.
@@ -269,7 +270,8 @@ dead_tree_fraction <- trees_clean|>
     total_trees = n(),
     dead_trees = sum(tpcondition == "Dead"),
     dead_fraction = dead_trees/total_trees
-            )
+            )|>
+  arrange(desc(dead_fraction))
 
 #Joining fraction back to district geomtries to create choropleth map
 districts_with_fraction <- council_districts|>
@@ -372,53 +374,55 @@ ggplot(top_species, aes(x = reorder(genusspecies_wrapped, num_trees), y = num_tr
 Q5. Since the Thornless Honeylocust is the most common tree species in Manhattan, it is no surprise that it would be the closest tree to Baruch College. This species is widely used in urban and suburban landscaping, often planted along streets and in parking lots due to its remarkable adaptability to urban stress.
 ```{r, cache=TRUE, results='hide'}
 #Task 4. Q5 - Determine the tree species closest to Baruch's campus
-#Defining function
-new_st_point <- function(lat, lon, ...) {
-  st_sfc(point=st_point(c(lon, lat)))|>
-    st_set_crs("WGS84")
-}
-
 #Creating Baruch point - coordinate lat=40.7394, lon=-73.9833
-baruch_point <- new_st_point(lat =  40.7394, lon= -73.9833)
+baruch_point <- st_sfc(st_point(c(-73.9833, 40.7394)), crs = 4326)
 
-#Compute distance from each tree to Baruch
-trees_with_district <- trees_with_district |>
-  mutate(distance_to_baruch = st_distance(geometry, baruch_point))
+# Project to NY State Plane (feet)
+trees_proj <- st_transform(trees_with_district, 2263)
+baruch_proj <- st_transform(baruch_point, 2263)
 
-#Determine the closest tree
-closest_tree <- trees_with_district |>
-  arrange(distance_to_baruch) |>
-  slice(1)  # top 1 closest tree
+# Compute distances in feet
+trees_proj <- trees_proj |>
+  mutate(distance_to_baruch_ft = as.numeric(st_distance(geometry, baruch_proj)))
 
-closest_tree$genusspecies # species of that tree
+# Find the closest tree
+closest_tree <- trees_proj |>
+  arrange(distance_to_baruch_ft) |>
+  slice(1)
 
-line_to_tree <- st_sfc(
-  st_cast(st_union(c(baruch_point, closest_tree$geometry)), "LINESTRING"),
-  crs = st_crs(baruch_point)
-)
+closest_tree$genusspecies     
+closest_tree$distance_to_baruch_ft
 
-# Plot the map
-ggplot() +
-  # NYC Council Districts
-  geom_sf(data = council_districts, fill = "gray95", color = "black") +
-  # All trees (light green, low opacity)
-  geom_sf(data = trees_with_district, color = "green", alpha = 0.01, size = 0.05) +
-  # Closest tree (red)
-  geom_sf(data = closest_tree, color = "red", size = 3) +
-  # Baruch campus (blue)
-  geom_sf(data = baruch_point, color = "blue", size = 3, shape = 18) +
-  # Line connecting Baruch and the closest tree
-  geom_sf(data = line_to_tree, color = "purple", size = 1, linetype = "dashed") +
-  labs(
-    title = "Closest Tree to Baruch College",
-    subtitle = paste0("Species: ", closest_tree$genusspecies),
-    caption = "Data: NYC Open Data and NYC Planning"
-  ) +
-  theme_minimal() +
-  theme(
-    plot.title = element_text(hjust = 0.5, face = "bold"),
-    plot.subtitle = element_text(hjust = 0.5)
-  )
+```
+```{r, echo=FALSE}
+#Task 4. Q5 - Map the closest tree to Baruch
+baruch_point <- st_sfc(st_point(c(-73.9833, 40.7394)), crs = 4326)
+closest_tree <- st_transform(closest_tree, 4326)
+
+# Creating interactive map
+leaflet() |>
+  addProviderTiles(leaflet::providers$CartoDB.Positron) |>
+  
+  # Baruch College marker
+  addMarkers(
+    data = baruch_point,
+    label = "Baruch College",
+    popup = "Baruch College"
+  )|>
+  
+  # Closest tree as a dot
+  addCircleMarkers(
+    data = closest_tree,
+    radius = 8,
+    color = "darkgreen",
+    fillColor = "darkgreen",
+    fillOpacity = 1,
+    label = closest_tree$genusspecies,
+    popup = paste0("<b>Closest tree</b><br/>Species: ", closest_tree$genusspecies)
+  )|>
+  
+  # Center and zoom near Baruch
+  setView(lng = -73.9833, lat = 40.7394, zoom = 17)
 
 ```
 ## IV. Government Project Design
@@ -531,7 +535,7 @@ ggplot(trees_manhattan_counts,
 ```
 <u>TREE DENSITY AND DISTRIBUTION</u>
 </br>
-Compared to other Manhattan districts, District 1 is the third largest area, covering nearly 7.23 km^2 of land. Despite its size, its tree density is among the lowest in the borough, with less than 2 trees per hectare. This highlights the pressing need to expand green space and increase tree coverage in the district.
+Compared to other Manhattan districts, District 1 is the third largest area, covering nearly 7.23 km^2^ of land. Despite its size, its tree density is among the lowest in the borough, with less than 2 trees per hectare. This highlights the pressing need to expand green space and increase tree coverage in the district.
 
 ```{r cache=TRUE, results='hide'}
 #Calculate tree density for more accurate comparison of number of trees per unit area
