@@ -429,7 +429,7 @@ leaflet() |>
 
 New York City Council District 1 encompasses several diverse and historically significant neighborhoods in Lower Manhattan, including the Financial District, Battery Park City, Chinatown, Tribeca, SoHo, and the Lower East Side. The district has experienced rapid development and land-use changes in recent years. The city's rezoning efforts for new affordable housing has also placed pressure on existing green spaces. The latest debate on the future of the Elizabeth Street Garden highlights community concerns about the loss of accessible, high-quality green space. These changes underscores the urgent need to protect and expand the district's urban forest.
 
-To preserve environmental quality, improve public health, and prevent further green areas, this proposal establishes the *District 1 Tree Restoration and Expansion Initiative*. This plan aims to strengthen the district's urban forestry by improving tree health, expanding tree coverage, and strengthening the district's green infrastructure.
+To preserve environmental quality, improve public health, and prevent further loss of green areas, this proposal establishes the *District 1 Tree Restoration and Expansion Initiative*. This plan aims to strengthen the district's urban forestry by improving tree health, expanding tree coverage, and strengthening the district's green infrastructure.
 
 
 
