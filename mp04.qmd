@@ -55,9 +55,9 @@ library(kableExtra)
 ```
 ## I. Executive Summary
 
-On 01 August 2025, President Donald Trump fired Dr. Erika McEntarfer, Commissioner of the Bureau of Labor Statistics (BLS), stating his concerns about the size and direction of recent revisions to the monthly Current Employment Statistics (CES) "job numbers". 
+On August 01, 2025, President Donald Trump fired Dr. Erika McEntarfer, Commissioner of the Bureau of Labor Statistics (BLS), stating his concerns about the size and direction of recent revisions to the monthly Current Employment Statistics (CES) "job numbers". 
 
-The dismissal sparked bipartisan cristcism from economists who warned that politicizing the Bureau of Labor Statistics could undermind the long-standing trust in federal statistics. Supporters of the agency noted that revisions are normal, expected, and built into the CES methodology.
+The dismissal sparked bipartisan criticism from economists who warned that politicizing the Bureau of Labor Statistics could undermine the long-standing trust in federal statistics. Supporters of the agency noted that revisions are normal, expected, and built into the CES methodology.
 
 Mini-Project 04 evaluates these competing claims, by analyzing data of CES revision patterns spanning nearly five decades. This is a nonpartisan, evidence-based analysis that recognizes both the methodological complexities and the important role that revisions play in improving the accuracy of federal labor statistics.
 
