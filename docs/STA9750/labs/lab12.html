@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>?var:course.short Week 12 In-Class Activity: Strings – STA 9750 Submission Material</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d3cb4660bf9ab46fc552571f6bf3984b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">STA 9750 Submission Material</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><strong>?var:course.short</strong> Week 12 In-Class Activity: Strings</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="cell">
+<pre class="{webr}"><code>#| echo: false
+#| message: true
+webr::install("httpuv", quiet=TRUE)
+webr::install("gradethis", quiet=TRUE)
+webr::install("tidyverse", quiet=TRUE)
+webr::install("nycflights13", quiet=TRUE)
+
+suppressPackageStartupMessages(library(tidyverse))
+
+if(require("gradethis", quietly = TRUE)){
+    message("Auto-grader initialized successfully. You can now begin exercises.")
+}</code></pre>
+</div>
+<div class="cell" data-edit="false">
+<pre class="{webr}"><code>#| edit: false
+#| output: false
+webr::install("gradethis", quiet = TRUE)
+library(gradethis)
+options(webr.exercise.checker = function(
+  label, user_code, solution_code, check_code, envir_result, evaluate_result,
+  envir_prep, last_value, engine, stage, ...
+) {
+  if (is.null(check_code)) {
+    # No grading code, so just skip grading
+    invisible(NULL)
+  } else if (is.null(label)) {
+    list(
+      correct = FALSE,
+      type = "warning",
+      message = "All exercises must have a label."
+    )
+  } else if (is.null(solution_code)) {
+    list(
+      correct = FALSE,
+      type = "warning",
+      message = htmltools::tags$div(
+        htmltools::tags$p("A problem occurred grading this exercise."),
+        htmltools::tags$p(
+          "No solution code was found. Note that grading exercises using the ",
+          htmltools::tags$code("gradethis"),
+          "package requires a model solution to be included in the document."
+        )
+      )
+    )
+  } else {
+    gradethis::gradethis_exercise_checker(
+      label = label, solution_code = solution_code, user_code = user_code,
+      check_code = check_code, envir_result = envir_result,
+      evaluate_result = evaluate_result, envir_prep = envir_prep,
+      last_value = last_value, stage = stage, engine = engine)
+  }
+})</code></pre>
+</div>
+<p><a href="../slides/slides12.html">Week 12 Slides</a></p>
+<section id="regular-expression-practice" class="level2">
+<h2 class="anchored" data-anchor-id="regular-expression-practice">Regular Expression Practice</h2>
+<p>Complete the following exercises using functionality from the <code>stringr</code> package.</p>
+<ol type="1">
+<li>In the following sentence, extract all <em>plural nouns</em><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>todo <span class="ot">&lt;-</span> <span class="st">"Yesterday, I needed to buy four cups of flour, a piece of Parmesan cheese, two gallons of ice cream, and a six-pack of bottled (non-alcoholic) beers."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-exercise="plural_nouns">
+<pre class="{webr}"><code>#| exercise: plural_nouns
+library(stringr)
+todo &lt;- "Yesterday, I needed to buy four cups of flour, a piece of Parmesan cheese, two gallons of ice cream, and a six-pack of bottled (non-alcoholic) beers."
+str_extract_all(todo, ______, simplify=TRUE)</code></pre>
+</div>
+<div class="proof solution" data-exercise="plural_nouns">
+<p><span class="proof-title"><em>Solution</em>. </span></p>
+<div class="cell" data-exercise="plural_nouns" data-solution="true">
+<pre class="{webr}"><code>#| exercise: plural_nouns
+#| solution: true
+library(stringr)
+todo &lt;- "Yesterday, I needed to buy four cups of flour, a piece of Parmesan cheese, two gallons of ice cream, and a six-pack of bottled (non-alcoholic) beers."
+str_extract_all(todo, " [A-Za-z]+s[. ]", simplify=TRUE)</code></pre>
+</div>
+</div>
+<div class="cell" data-exercise="plural_nouns" data-check="true">
+<pre class="{webr}"><code>#| exercise: plural_nouns
+#| check: true
+library(stringr)
+gradethis::grade_this_code()</code></pre>
+</div>
+<ol start="2" type="1">
+<li>In the following sentence, compute the total number of fruits on my shopping list:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>shopping <span class="ot">&lt;-</span> <span class="st">"Today, I need to purchase 3 apples, 5 limes, and 2 lemons."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-exercise="numbers">
+<pre class="{webr}"><code>#| exercise: numbers
+library(stringr)
+shopping &lt;- "Today, I need to purchase 3 apples, 5 limes, and 2 lemons."
+sum(as.numeric(str_extract_all(shopping, ______, simplify=TRUE)))</code></pre>
+</div>
+<div class="proof solution" data-exercise="numbers">
+<p><span class="proof-title"><em>Solution</em>. </span></p>
+<div class="cell" data-exercise="numbers" data-solution="true">
+<pre class="{webr}"><code>#| exercise: numbers
+#| solution: true
+library(stringr)
+shopping &lt;- "Today, I need to purchase 3 apples, 5 limes, and 2 lemons."
+sum(as.numeric(str_extract_all(shopping, "\\d+", simplify=TRUE)))</code></pre>
+</div>
+</div>
+<div class="cell" data-exercise="numbers" data-check="true">
+<pre class="{webr}"><code>#| exercise: numbers
+#| check: true
+library(stringr)
+gradethis::grade_this_code()</code></pre>
+</div>
+<ol start="3" type="1">
+<li>The following text is adapted from the <a href="https://en.wikipedia.org/wiki/Taylor_Swift">Taylor Swift wikipedia page</a>, with some changes made to the punctuation to make things easier.</li>
+</ol>
+<blockquote class="blockquote">
+<p>Taylor Alison Swift (born December 13, 1989) is an American singer-songwriter. A subject of widespread public interest, she has influenced the music industry and popular culture through her artistry, especially in songwriting, and entrepreneurship. She is an advocate of artists rights and womens empowerment. Swift began professional songwriting at age 14. She signed with Big Machine Records in 2005 and achieved prominence as a country pop singer with the albums Taylor Swift (2006) and Fearless (2008). Their singles ‘Teardrops on My Guitar’, ‘Love Story’, and ‘You Belong with Me’ were crossover successes on country and pop radio formats and brought Swift mainstream fame. She experimented with rock and electronic styles on her next albums, Speak Now (2010) and Red (2012), respectively, with the latter featuring her first Billboard Hot 100 number-one single, ‘We Are Never Ever Getting Back Together’. Swift recalibrated her image from country to pop with 1989 (2014), a synth-pop album containing the chart-topping songs ‘Shake It Off’, ‘Blank Space’, and ‘Bad Blood’. Media scrutiny inspired the hip-hop-influenced Reputation (2017) and its number-one single ‘Look What You Made Me Do’. After signing with Republic Records in 2018, Swift released the eclectic pop album Lover (2019) and the autobiographical documentary Miss Americana (2020). She explored indie folk styles on the 2020 albums Folklore and Evermore, subdued electropop on Midnights (2022), and re-recorded four albums subtitled Taylors Version after a dispute with Big Machine. These albums spawned the number-one songs ‘Cruel Summer’, ‘Cardigan’, ‘Willow’, ‘Anti-Hero’, ‘All Too Well’, and ‘Is It Over Now?’. Her Eras Tour (2023-2024) and its accompanying concert film became the highest-grossing tour and concert film of all time, respectively. Swift has directed videos and films such as Folklore: The Long Pond Studio Sessions (2020) and All Too Well: The Short Film (2021). Swift is one of the worlds best-selling artists, with 200 million records sold worldwide as of 2019. She is the most-streamed artist on Spotify, the highest-grossing female touring act, and the first billionaire with music as the main source of income. Six of her albums have opened with over one million sales in a week. The 2023 Time Person of the Year, Swift has appeared on lists such as Rolling Stones 100 Greatest Songwriters of All Time, Billboards Greatest of All Time Artists, and Forbes Worlds 100 Most Powerful Women. Her accolades include 14 Grammy Awards, a Primetime Emmy Award, 40 American Music Awards, 39 Billboard Music Awards, and 23 MTV Video Music Awards; she has won the Grammy Award for Album of the Year, the MTV Video Music Award for Video of the Year, and the IFPI Global Recording Artist of the Year a record four times each.</p>
+</blockquote>
+<p>How many times does Taylor Swift’s last name appear?</p>
+<div class="cell" data-exercise="swift">
+<pre class="{webr}"><code>#| exercise: swift
+library(stringr)
+swift &lt;- "Taylor Alison Swift (born December 13, 1989) is an American singer-songwriter. A subject of widespread public interest, she has influenced the music industry and popular culture through her artistry, especially in songwriting, and entrepreneurship. She is an advocate of artists rights and womens empowerment. Swift began professional songwriting at age 14. She signed with Big Machine Records in 2005 and achieved prominence as a country pop singer with the albums Taylor Swift (2006) and Fearless (2008). Their singles 'Teardrops on My Guitar', 'Love Story', and 'You Belong with Me' were crossover successes on country and pop radio formats and brought Swift mainstream fame. She experimented with rock and electronic styles on her next albums, Speak Now (2010) and Red (2012), respectively, with the latter featuring her first Billboard Hot 100 number-one single, 'We Are Never Ever Getting Back Together'. Swift recalibrated her image from country to pop with 1989 (2014), a synth-pop album containing the chart-topping songs 'Shake It Off', 'Blank Space', and 'Bad Blood'. Media scrutiny inspired the hip-hop-influenced Reputation (2017) and its number-one single 'Look What You Made Me Do'. After signing with Republic Records in 2018, Swift released the eclectic pop album Lover (2019) and the autobiographical documentary Miss Americana (2020). She explored indie folk styles on the 2020 albums Folklore and Evermore, subdued electropop on Midnights (2022), and re-recorded four albums subtitled Taylors Version after a dispute with Big Machine. These albums spawned the number-one songs 'Cruel Summer', 'Cardigan', 'Willow', 'Anti-Hero', 'All Too Well', and 'Is It Over Now?'. Her Eras Tour (2023-2024) and its accompanying concert film became the highest-grossing tour and concert film of all time, respectively. Swift has directed videos and films such as Folklore: The Long Pond Studio Sessions (2020) and All Too Well: The Short Film (2021). Swift is one of the worlds best-selling artists, with 200 million records sold worldwide as of 2019. She is the most-streamed artist on Spotify, the highest-grossing female touring act, and the first billionaire with music as the main source of income. Six of her albums have opened with over one million sales in a week. The 2023 Time Person of the Year, Swift has appeared on lists such as Rolling Stones 100 Greatest Songwriters of All Time, Billboards Greatest of All Time Artists, and Forbes Worlds 100 Most Powerful Women. Her accolades include 14 Grammy Awards, a Primetime Emmy Award,  40 American Music Awards, 39 Billboard Music Awards, and 23 MTV Video Music Awards; she has won the Grammy Award for Album of the Year, the MTV Video Music Award for Video of the Year, and the IFPI Global Recording Artist of the Year a record four times each."
+str_count(swift, ______)</code></pre>
+</div>
+<div class="proof solution" data-exercise="swift">
+<p><span class="proof-title"><em>Solution</em>. </span></p>
+<div class="cell" data-exercise="swift" data-solution="true">
+<pre class="{webr}"><code>#| exercise: swift
+#| solution: true
+library(stringr)
+swift &lt;- "Taylor Alison Swift (born December 13, 1989) is an American singer-songwriter. A subject of widespread public interest, she has influenced the music industry and popular culture through her artistry, especially in songwriting, and entrepreneurship. She is an advocate of artists rights and womens empowerment. Swift began professional songwriting at age 14. She signed with Big Machine Records in 2005 and achieved prominence as a country pop singer with the albums Taylor Swift (2006) and Fearless (2008). Their singles 'Teardrops on My Guitar', 'Love Story', and 'You Belong with Me' were crossover successes on country and pop radio formats and brought Swift mainstream fame. She experimented with rock and electronic styles on her next albums, Speak Now (2010) and Red (2012), respectively, with the latter featuring her first Billboard Hot 100 number-one single, 'We Are Never Ever Getting Back Together'. Swift recalibrated her image from country to pop with 1989 (2014), a synth-pop album containing the chart-topping songs 'Shake It Off', 'Blank Space', and 'Bad Blood'. Media scrutiny inspired the hip-hop-influenced Reputation (2017) and its number-one single 'Look What You Made Me Do'. After signing with Republic Records in 2018, Swift released the eclectic pop album Lover (2019) and the autobiographical documentary Miss Americana (2020). She explored indie folk styles on the 2020 albums Folklore and Evermore, subdued electropop on Midnights (2022), and re-recorded four albums subtitled Taylors Version after a dispute with Big Machine. These albums spawned the number-one songs 'Cruel Summer', 'Cardigan', 'Willow', 'Anti-Hero', 'All Too Well', and 'Is It Over Now?'. Her Eras Tour (2023-2024) and its accompanying concert film became the highest-grossing tour and concert film of all time, respectively. Swift has directed videos and films such as Folklore: The Long Pond Studio Sessions (2020) and All Too Well: The Short Film (2021). Swift is one of the worlds best-selling artists, with 200 million records sold worldwide as of 2019. She is the most-streamed artist on Spotify, the highest-grossing female touring act, and the first billionaire with music as the main source of income. Six of her albums have opened with over one million sales in a week. The 2023 Time Person of the Year, Swift has appeared on lists such as Rolling Stones 100 Greatest Songwriters of All Time, Billboards Greatest of All Time Artists, and Forbes Worlds 100 Most Powerful Women. Her accolades include 14 Grammy Awards, a Primetime Emmy Award,  40 American Music Awards, 39 Billboard Music Awards, and 23 MTV Video Music Awards; she has won the Grammy Award for Album of the Year, the MTV Video Music Award for Video of the Year, and the IFPI Global Recording Artist of the Year a record four times each."
+str_count(swift, "Swift")</code></pre>
+</div>
+</div>
+<div class="cell" data-exercise="swift" data-check="true">
+<pre class="{webr}"><code>#| exercise: swift
+#| check: true
+library(stringr)
+gradethis::grade_this_code()</code></pre>
+</div>
+<ol start="4" type="1">
+<li>In the above quote, how many <em>different years</em> (strings of exactly 4 digits) appear?</li>
+</ol>
+<div class="cell" data-exercise="years">
+<pre class="{webr}"><code>#| exercise: years
+library(stringr)
+swift &lt;- "Taylor Alison Swift (born December 13, 1989) is an American singer-songwriter. A subject of widespread public interest, she has influenced the music industry and popular culture through her artistry, especially in songwriting, and entrepreneurship. She is an advocate of artists rights and womens empowerment. Swift began professional songwriting at age 14. She signed with Big Machine Records in 2005 and achieved prominence as a country pop singer with the albums Taylor Swift (2006) and Fearless (2008). Their singles 'Teardrops on My Guitar', 'Love Story', and 'You Belong with Me' were crossover successes on country and pop radio formats and brought Swift mainstream fame. She experimented with rock and electronic styles on her next albums, Speak Now (2010) and Red (2012), respectively, with the latter featuring her first Billboard Hot 100 number-one single, 'We Are Never Ever Getting Back Together'. Swift recalibrated her image from country to pop with 1989 (2014), a synth-pop album containing the chart-topping songs 'Shake It Off', 'Blank Space', and 'Bad Blood'. Media scrutiny inspired the hip-hop-influenced Reputation (2017) and its number-one single 'Look What You Made Me Do'. After signing with Republic Records in 2018, Swift released the eclectic pop album Lover (2019) and the autobiographical documentary Miss Americana (2020). She explored indie folk styles on the 2020 albums Folklore and Evermore, subdued electropop on Midnights (2022), and re-recorded four albums subtitled Taylors Version after a dispute with Big Machine. These albums spawned the number-one songs 'Cruel Summer', 'Cardigan', 'Willow', 'Anti-Hero', 'All Too Well', and 'Is It Over Now?'. Her Eras Tour (2023-2024) and its accompanying concert film became the highest-grossing tour and concert film of all time, respectively. Swift has directed videos and films such as Folklore: The Long Pond Studio Sessions (2020) and All Too Well: The Short Film (2021). Swift is one of the worlds best-selling artists, with 200 million records sold worldwide as of 2019. She is the most-streamed artist on Spotify, the highest-grossing female touring act, and the first billionaire with music as the main source of income. Six of her albums have opened with over one million sales in a week. The 2023 Time Person of the Year, Swift has appeared on lists such as Rolling Stones 100 Greatest Songwriters of All Time, Billboards Greatest of All Time Artists, and Forbes Worlds 100 Most Powerful Women. Her accolades include 14 Grammy Awards, a Primetime Emmy Award,  40 American Music Awards, 39 Billboard Music Awards, and 23 MTV Video Music Awards; she has won the Grammy Award for Album of the Year, the MTV Video Music Award for Video of the Year, and the IFPI Global Recording Artist of the Year a record four times each."
+str_count(swift, ______)</code></pre>
+</div>
+<div class="proof solution" data-exercise="years">
+<p><span class="proof-title"><em>Solution</em>. </span></p>
+<div class="cell" data-exercise="years" data-solution="true">
+<pre class="{webr}"><code>#| exercise: years
+#| solution: true
+library(stringr)
+swift &lt;- "Taylor Alison Swift (born December 13, 1989) is an American singer-songwriter. A subject of widespread public interest, she has influenced the music industry and popular culture through her artistry, especially in songwriting, and entrepreneurship. She is an advocate of artists rights and womens empowerment. Swift began professional songwriting at age 14. She signed with Big Machine Records in 2005 and achieved prominence as a country pop singer with the albums Taylor Swift (2006) and Fearless (2008). Their singles 'Teardrops on My Guitar', 'Love Story', and 'You Belong with Me' were crossover successes on country and pop radio formats and brought Swift mainstream fame. She experimented with rock and electronic styles on her next albums, Speak Now (2010) and Red (2012), respectively, with the latter featuring her first Billboard Hot 100 number-one single, 'We Are Never Ever Getting Back Together'. Swift recalibrated her image from country to pop with 1989 (2014), a synth-pop album containing the chart-topping songs 'Shake It Off', 'Blank Space', and 'Bad Blood'. Media scrutiny inspired the hip-hop-influenced Reputation (2017) and its number-one single 'Look What You Made Me Do'. After signing with Republic Records in 2018, Swift released the eclectic pop album Lover (2019) and the autobiographical documentary Miss Americana (2020). She explored indie folk styles on the 2020 albums Folklore and Evermore, subdued electropop on Midnights (2022), and re-recorded four albums subtitled Taylors Version after a dispute with Big Machine. These albums spawned the number-one songs 'Cruel Summer', 'Cardigan', 'Willow', 'Anti-Hero', 'All Too Well', and 'Is It Over Now?'. Her Eras Tour (2023-2024) and its accompanying concert film became the highest-grossing tour and concert film of all time, respectively. Swift has directed videos and films such as Folklore: The Long Pond Studio Sessions (2020) and All Too Well: The Short Film (2021). Swift is one of the worlds best-selling artists, with 200 million records sold worldwide as of 2019. She is the most-streamed artist on Spotify, the highest-grossing female touring act, and the first billionaire with music as the main source of income. Six of her albums have opened with over one million sales in a week. The 2023 Time Person of the Year, Swift has appeared on lists such as Rolling Stones 100 Greatest Songwriters of All Time, Billboards Greatest of All Time Artists, and Forbes Worlds 100 Most Powerful Women. Her accolades include 14 Grammy Awards, a Primetime Emmy Award,  40 American Music Awards, 39 Billboard Music Awards, and 23 MTV Video Music Awards; she has won the Grammy Award for Album of the Year, the MTV Video Music Award for Video of the Year, and the IFPI Global Recording Artist of the Year a record four times each."
+str_count(swift, "\\d{4}")</code></pre>
+</div>
+</div>
+<div class="cell" data-exercise="years" data-check="true">
+<pre class="{webr}"><code>#| exercise: years
+#| check: true
+library(stringr)
+gradethis::grade_this_code()</code></pre>
+</div>
+<ol start="5" type="1">
+<li><p>Extract the names of all songs mentioned in the biography above. (Note that song names are surrounded by single quotes.)</p>
+<p>You will need to use a <a href="https://stringr.tidyverse.org/articles/regular-expressions.html#repetition"><em>lazy</em> regular expression</a>.</p></li>
+</ol>
+<div class="cell" data-exercise="albums">
+<pre class="{webr}"><code>#| exercise: albums
+library(stringr)
+swift &lt;- "Taylor Alison Swift (born December 13, 1989) is an American singer-songwriter. A subject of widespread public interest, she has influenced the music industry and popular culture through her artistry, especially in songwriting, and entrepreneurship. She is an advocate of artists rights and womens empowerment. Swift began professional songwriting at age 14. She signed with Big Machine Records in 2005 and achieved prominence as a country pop singer with the albums Taylor Swift (2006) and Fearless (2008). Their singles 'Teardrops on My Guitar', 'Love Story', and 'You Belong with Me' were crossover successes on country and pop radio formats and brought Swift mainstream fame. She experimented with rock and electronic styles on her next albums, Speak Now (2010) and Red (2012), respectively, with the latter featuring her first Billboard Hot 100 number-one single, 'We Are Never Ever Getting Back Together'. Swift recalibrated her image from country to pop with 1989 (2014), a synth-pop album containing the chart-topping songs 'Shake It Off', 'Blank Space', and 'Bad Blood'. Media scrutiny inspired the hip-hop-influenced Reputation (2017) and its number-one single 'Look What You Made Me Do'. After signing with Republic Records in 2018, Swift released the eclectic pop album Lover (2019) and the autobiographical documentary Miss Americana (2020). She explored indie folk styles on the 2020 albums Folklore and Evermore, subdued electropop on Midnights (2022), and re-recorded four albums subtitled Taylors Version after a dispute with Big Machine. These albums spawned the number-one songs 'Cruel Summer', 'Cardigan', 'Willow', 'Anti-Hero', 'All Too Well', and 'Is It Over Now?'. Her Eras Tour (2023-2024) and its accompanying concert film became the highest-grossing tour and concert film of all time, respectively. Swift has directed videos and films such as Folklore: The Long Pond Studio Sessions (2020) and All Too Well: The Short Film (2021). Swift is one of the worlds best-selling artists, with 200 million records sold worldwide as of 2019. She is the most-streamed artist on Spotify, the highest-grossing female touring act, and the first billionaire with music as the main source of income. Six of her albums have opened with over one million sales in a week. The 2023 Time Person of the Year, Swift has appeared on lists such as Rolling Stones 100 Greatest Songwriters of All Time, Billboards Greatest of All Time Artists, and Forbes Worlds 100 Most Powerful Women. Her accolades include 14 Grammy Awards, a Primetime Emmy Award,  40 American Music Awards, 39 Billboard Music Awards, and 23 MTV Video Music Awards; she has won the Grammy Award for Album of the Year, the MTV Video Music Award for Video of the Year, and the IFPI Global Recording Artist of the Year a record four times each."
+str_extract_all(swift, ______, simplify=TRUE)</code></pre>
+</div>
+<div class="proof solution" data-exercise="albums">
+<p><span class="proof-title"><em>Solution</em>. </span></p>
+<div class="cell" data-exercise="albums" data-solution="true">
+<pre class="{webr}"><code>#| exercise: albums
+#| solution: true
+library(stringr)
+swift &lt;- "Taylor Alison Swift (born December 13, 1989) is an American singer-songwriter. A subject of widespread public interest, she has influenced the music industry and popular culture through her artistry, especially in songwriting, and entrepreneurship. She is an advocate of artists rights and womens empowerment. Swift began professional songwriting at age 14. She signed with Big Machine Records in 2005 and achieved prominence as a country pop singer with the albums Taylor Swift (2006) and Fearless (2008). Their singles 'Teardrops on My Guitar', 'Love Story', and 'You Belong with Me' were crossover successes on country and pop radio formats and brought Swift mainstream fame. She experimented with rock and electronic styles on her next albums, Speak Now (2010) and Red (2012), respectively, with the latter featuring her first Billboard Hot 100 number-one single, 'We Are Never Ever Getting Back Together'. Swift recalibrated her image from country to pop with 1989 (2014), a synth-pop album containing the chart-topping songs 'Shake It Off', 'Blank Space', and 'Bad Blood'. Media scrutiny inspired the hip-hop-influenced Reputation (2017) and its number-one single 'Look What You Made Me Do'. After signing with Republic Records in 2018, Swift released the eclectic pop album Lover (2019) and the autobiographical documentary Miss Americana (2020). She explored indie folk styles on the 2020 albums Folklore and Evermore, subdued electropop on Midnights (2022), and re-recorded four albums subtitled Taylors Version after a dispute with Big Machine. These albums spawned the number-one songs 'Cruel Summer', 'Cardigan', 'Willow', 'Anti-Hero', 'All Too Well', and 'Is It Over Now?'. Her Eras Tour (2023-2024) and its accompanying concert film became the highest-grossing tour and concert film of all time, respectively. Swift has directed videos and films such as Folklore: The Long Pond Studio Sessions (2020) and All Too Well: The Short Film (2021). Swift is one of the worlds best-selling artists, with 200 million records sold worldwide as of 2019. She is the most-streamed artist on Spotify, the highest-grossing female touring act, and the first billionaire with music as the main source of income. Six of her albums have opened with over one million sales in a week. The 2023 Time Person of the Year, Swift has appeared on lists such as Rolling Stones 100 Greatest Songwriters of All Time, Billboards Greatest of All Time Artists, and Forbes Worlds 100 Most Powerful Women. Her accolades include 14 Grammy Awards, a Primetime Emmy Award,  40 American Music Awards, 39 Billboard Music Awards, and 23 MTV Video Music Awards; she has won the Grammy Award for Album of the Year, the MTV Video Music Award for Video of the Year, and the IFPI Global Recording Artist of the Year a record four times each."
+str_extract_all(swift, "'.*?'", simplify=TRUE)</code></pre>
+</div>
+</div>
+<div class="cell" data-exercise="albums" data-check="true">
+<pre class="{webr}"><code>#| exercise: albums
+#| check: true
+library(stringr)
+gradethis::grade_this_code()</code></pre>
+</div>
+</section>
+<section id="scraping-practice-i-cocktail-recipies-part-2" class="level2">
+<h2 class="anchored" data-anchor-id="scraping-practice-i-cocktail-recipies-part-2">Scraping Practice I: Cocktail Recipies (Part 2)</h2>
+<p>Last week, we began to scrape <a href="https://cocktails.hadley.nz/">Hadley’s Cocktails</a> with an (eventual) goal of creating a “spreadsheet” of recipes by ingredients.</p>
+<p>We found the following:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>BASE_URL <span class="ot">&lt;-</span> <span class="st">"https://cocktails.hadley.nz/"</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>PAGES <span class="ot">&lt;-</span> <span class="fu">read_html</span>(BASE_URL) <span class="sc">|&gt;</span> </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">html_elements</span>(<span class="st">"nav a"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">html_attr</span>(<span class="st">"href"</span>)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>read_article <span class="ot">&lt;-</span> <span class="cf">function</span>(article){</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    title <span class="ot">&lt;-</span> article <span class="sc">|&gt;</span> <span class="fu">html_element</span>(<span class="st">"h2"</span>) <span class="sc">|&gt;</span> <span class="fu">html_text</span>()</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    ingredients <span class="ot">&lt;-</span> article <span class="sc">|&gt;</span> <span class="fu">html_elements</span>(<span class="st">"li"</span>) <span class="sc">|&gt;</span> <span class="fu">html_text</span>()</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">data.frame</span>(<span class="at">title=</span>title, <span class="at">ingredient=</span>ingredients)</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>read_page <span class="ot">&lt;-</span> <span class="cf">function</span>(stub){</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>    URL <span class="ot">&lt;-</span> <span class="fu">paste0</span>(BASE_URL, stub)</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>    COCKTAILS <span class="ot">&lt;-</span> <span class="fu">read_html</span>(URL) <span class="sc">|&gt;</span> <span class="fu">html_elements</span>(<span class="st">"article"</span>)</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">map_df</span>(COCKTAILS, read_article)</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>RECIPES_LONG <span class="ot">&lt;-</span> <span class="fu">map</span>(PAGES, read_page) <span class="sc">|&gt;</span> <span class="fu">list_rbind</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Take this output and use <code>stringr</code> and <code>tidyr</code> to complete the transition to a well-formated “wide” set of recipies.</p>
+<ol type="1">
+<li>Clean up the <code>title</code> column.</li>
+<li>Split the <code>ingredient</code> column into three new columns:
+<ol type="1">
+<li>Amount</li>
+<li>Unit</li>
+<li>Ingredient Name</li>
+</ol>
+The following functions may be useful to you:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>get_number_part <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(dplyr)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(stringr)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    x <span class="sc">|&gt;</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">str_replace_all</span>(<span class="st">"[A-Za-z,']"</span>, <span class="st">""</span>) <span class="sc">|&gt;</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">str_trim</span>() <span class="sc">|&gt;</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">case_match</span>(</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>            <span class="st">"1"</span> <span class="sc">~</span> <span class="dv">1</span>, </span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>            <span class="st">"2"</span> <span class="sc">~</span> <span class="dv">2</span>,</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>            <span class="st">"2½"</span> <span class="sc">~</span> <span class="fl">2.5</span>,</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>            <span class="st">"1½"</span> <span class="sc">~</span> <span class="fl">1.5</span>,</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>            <span class="st">"½"</span> <span class="sc">~</span> <span class="fl">0.5</span>, </span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>            <span class="st">"¾"</span> <span class="sc">~</span> <span class="fl">0.75</span>,</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>            <span class="st">"1¾"</span> <span class="sc">~</span> <span class="fl">1.75</span>,</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>            <span class="st">"¼"</span> <span class="sc">~</span> <span class="fl">0.25</span>,</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>            <span class="st">"1¼"</span> <span class="sc">~</span> <span class="fl">1.25</span>,</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>            <span class="st">"3"</span> <span class="sc">~</span> <span class="dv">3</span>,</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>            <span class="st">"4"</span> <span class="sc">~</span> <span class="dv">4</span>, </span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>            <span class="st">"5"</span> <span class="sc">~</span> <span class="dv">5</span>, </span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>            <span class="st">"6"</span> <span class="sc">~</span> <span class="dv">6</span>, </span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>            <span class="st">"7"</span> <span class="sc">~</span> <span class="dv">7</span>, </span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>            <span class="st">"8"</span> <span class="sc">~</span> <span class="dv">8</span></span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>get_cocktail_unit <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(dplyr)</span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(stringr)</span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">case_when</span>(</span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a>        <span class="fu">str_detect</span>(x, <span class="st">"oz"</span>) <span class="sc">~</span> <span class="st">"oz"</span>,</span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a>        <span class="fu">str_detect</span>(x, <span class="st">"dash"</span>) <span class="sc">~</span> <span class="st">"dash"</span>,</span>
+<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a>        <span class="fu">str_detect</span>(x, <span class="st">"drop"</span>) <span class="sc">~</span> <span class="st">"drop"</span>,</span>
+<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a>        <span class="fu">str_detect</span>(x, <span class="st">" t "</span>) <span class="sc">~</span> <span class="st">"t"</span>, </span>
+<span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a>        <span class="fu">str_detect</span>(x, <span class="st">"chunk"</span>) <span class="sc">~</span> <span class="st">"chunk"</span>,</span>
+<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a>        <span class="fu">str_detect</span>(x, <span class="st">"leaves"</span>) <span class="sc">~</span> <span class="st">"leaves"</span>,</span>
+<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a>        <span class="fu">str_detect</span>(x, <span class="st">" cm "</span>) <span class="sc">~</span> <span class="st">"cm"</span></span>
+<span id="cb21-37"><a href="#cb21-37" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb21-38"><a href="#cb21-38" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You will need to create a third helper function to pull out the actual ingredient name. You can implement this with a (somewhat complex) <code>str_replace_all</code>.</p>
+<p>You should wind up with a table that looks something like</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Cocktail</th>
+<th>Ingredient</th>
+<th>Unit</th>
+<th>Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Bachelor</td>
+<td>rum, dark</td>
+<td>oz</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Bachelor</td>
+<td>Meletti</td>
+<td>oz</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<ol start="3" type="1">
+<li><p>Combine the ingredient and unit columns so that <code>Meletti</code> and <code>oz</code> in two separate columns becomes <code>Meletti (oz)</code> in a single column.</p></li>
+<li><p>Use a <code>pivot_*</code> function to create a new <em>wide</em> table with each ingredient as a column.</p>
+<p>Which <code>pivot</code> operation do you want to use here? How should the empty cells be treated?</p></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>get_ingredient_name <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_remove_all</span>(x, <span class="st">"[0-9¼½¾]|( oz )|( dashes )|( dash )|( drops )|( drop )|( t )|( chunks )|( chunk )|( leaves )|( leaf )|( cm )"</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>RECIPES_LONG <span class="sc">|&gt;</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Remove duplicates from import process</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># When we import each ingredient page, we get duplicates</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># as drinks are listed on multiple ingredient pages.</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">distinct</span>() <span class="sc">|&gt;</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">title  =</span> <span class="fu">str_trim</span>(title), </span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">amount =</span> <span class="fu">get_number_part</span>(ingredient), </span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">unit  =</span> <span class="fu">get_cocktail_unit</span>(ingredient), </span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>           <span class="at">ingredient =</span> <span class="fu">get_ingredient_name</span>(ingredient)) <span class="sc">|&gt;</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># For some ingredients, e.g. a lemon twist, the implied</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># but unstated quantity is 1</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">amount =</span> <span class="fu">case_when</span>(</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>        <span class="fu">is.na</span>(amount) <span class="sc">~</span> <span class="dv">1</span>, </span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>        <span class="cn">TRUE</span> <span class="sc">~</span> amount), </span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">ingredient =</span> <span class="fu">str_to_title</span>(ingredient)) <span class="sc">|&gt;</span></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="at">Cocktail =</span> title, </span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>           <span class="at">Amount =</span> amount, </span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>           <span class="at">Unit =</span> unit, </span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>           <span class="at">Ingredient =</span> ingredient) <span class="sc">|&gt;</span></span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">Ingredient =</span> <span class="fu">case_when</span>(</span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>        <span class="fu">is.na</span>(Unit) <span class="sc">~</span> Ingredient, <span class="co"># Handle unit-less ingredients</span></span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>        <span class="cn">TRUE</span> <span class="sc">~</span> <span class="fu">paste0</span>(Ingredient, <span class="st">" ("</span>, Unit, <span class="st">")"</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Spanish Coffee lists orange liqueur twice, so let's </span></span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># add up repeated ingredients before pivoting.</span></span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># (I think this is the only one)</span></span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(Cocktail, Ingredient) <span class="sc">|&gt;</span></span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">Amount =</span> <span class="fu">sum</span>(Amount)) <span class="sc">|&gt;</span></span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> Cocktail, </span>
+<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a>                <span class="at">names_from =</span> Ingredient, </span>
+<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a>                <span class="at">values_from =</span> Amount, </span>
+<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>                <span class="at">values_fill =</span> <span class="dv">0</span>) <span class="sc">|&gt;</span></span>
+<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="st">"Cocktail"</span>, <span class="fu">sort</span>(tidyselect<span class="sc">::</span><span class="fu">peek_vars</span>()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="scraping-practice-ii-quotes" class="level2">
+<h2 class="anchored" data-anchor-id="scraping-practice-ii-quotes">Scraping Practice II: Quotes</h2>
+<p>Next, let’s analyze the website <a href="https://quotes.toscrape.com">https://quotes.toscrape.com</a>, a website designed to practice web-scraping.</p>
+<p>Scrape the contents of that website–note that quotes continue for multiple pages–and answer the following questions. You can check most of these “by hand” but you need to compute your answers in code!</p>
+<ol type="1">
+<li>How many quotes are on this website (all pages)?</li>
+<li>How many quotes are tagged “Death”?</li>
+<li>What is the longest quote (by number of characters)? The <code>nchar</code> function will be helpful.</li>
+<li>How many quotes are by (or at least are attributed to) Albert Einstein?</li>
+<li>Of all authors quoted, who has the earliest (estimated) birthday?</li>
+</ol>
+</section>
+<section id="basic-statistical-modeling" class="level2">
+<h2 class="anchored" data-anchor-id="basic-statistical-modeling">Basic Statistical Modeling</h2>
+<p><code>R</code> has a number of powerful built-in statistical methods, many of which you will explore in other courses, <em>e.g.</em>, <code>lm</code> and <code>glm</code> in your regression course. Time allowing, we’re going to explore an alternative approach to statistics using <em>computational inference</em>. While these techniques can be implemented by hand, we’re going to use the <a href="https://infer.netlify.app/"><code>infer</code> package</a>.</p>
+<p><strong>Time Allowing</strong>:</p>
+<ul>
+<li>Discussion of computational inference</li>
+<li>Demonstration with <code>infer</code> package.</li>
+</ul>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>While English pluralization rules are tricky, you can just find the words ending with an <code>s</code>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/Ghirschhorn\.github\.io\/STA9750-2025-FALL\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

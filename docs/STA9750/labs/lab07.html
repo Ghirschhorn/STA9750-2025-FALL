@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>?var:course.short Week 7 In-Class Activity: More Thoughts on Plots – STA 9750 Submission Material</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d3cb4660bf9ab46fc552571f6bf3984b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">STA 9750 Submission Material</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><strong>?var:course.short</strong> Week 7 In-Class Activity: More Thoughts on Plots</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="cell">
+<pre class="{webr}"><code>#| echo: false
+#| message: true
+webr::install("httpuv", quiet=TRUE)
+webr::install("gradethis", quiet=TRUE)
+webr::install("tidyverse", quiet=TRUE)
+webr::install("nycflights13", quiet=TRUE)
+
+suppressPackageStartupMessages(library(tidyverse))
+
+if(require("gradethis", quietly = TRUE)){
+    message("Auto-grader initialized successfully. You can now begin exercises.")
+}</code></pre>
+</div>
+<div class="cell" data-edit="false">
+<pre class="{webr}"><code>#| edit: false
+#| output: false
+webr::install("gradethis", quiet = TRUE)
+library(gradethis)
+options(webr.exercise.checker = function(
+  label, user_code, solution_code, check_code, envir_result, evaluate_result,
+  envir_prep, last_value, engine, stage, ...
+) {
+  if (is.null(check_code)) {
+    # No grading code, so just skip grading
+    invisible(NULL)
+  } else if (is.null(label)) {
+    list(
+      correct = FALSE,
+      type = "warning",
+      message = "All exercises must have a label."
+    )
+  } else if (is.null(solution_code)) {
+    list(
+      correct = FALSE,
+      type = "warning",
+      message = htmltools::tags$div(
+        htmltools::tags$p("A problem occurred grading this exercise."),
+        htmltools::tags$p(
+          "No solution code was found. Note that grading exercises using the ",
+          htmltools::tags$code("gradethis"),
+          "package requires a model solution to be included in the document."
+        )
+      )
+    )
+  } else {
+    gradethis::gradethis_exercise_checker(
+      label = label, solution_code = solution_code, user_code = user_code,
+      check_code = check_code, envir_result = envir_result,
+      evaluate_result = evaluate_result, envir_prep = envir_prep,
+      last_value = last_value, stage = stage, engine = engine)
+  }
+})</code></pre>
+</div>
+<div class="cell">
+<pre class="{webr}"><code>#| echo: false
+webr::install(c("tidyverse", "mgcv"), quiet=TRUE)
+suppressPackageStartupMessages(library(tidyverse))</code></pre>
+</div>
+<section id="slides" class="level1">
+<h1><a href="../../STA9750/slides/slides07.html">Slides</a></h1>
+</section>
+<section id="review" class="level1">
+<h1>Review Practice</h1>
+<p>The <a href="https://www.esd.ornl.gov/iab/iab2-15.htm">Carbon Dioxide Information and Analysis Center</a> studies the effect of carbon dioxide on global and local temperature trends. A key tool in their analysis is the temperature “anomaly”. An anomaly is the difference between observed temperature (in a world with anthropogenic atmospheric CO2) and ‘natural’ temperature (from a world without anthropogenic gases). Note that these anomalies require significant analysis to compute and are not “simple observational” data.</p>
+<p>Politicians have adopted the tools of temperature anomaly to set national and international emissions targets, <em>e.g.</em>, the <a href="https://en.wikipedia.org/wiki/2_degree_climate_target">2 Degree Target</a>. Note that 2 degrees is calculated as a <em>global</em> average: in practice, some regions will experience a much larger change in temperature, while others may experience a smaller change or even a negative change.</p>
+<p>The <a href="https://www.cvxgrp.org/CVXR/"><code>CVXR</code></a> package includes the <code>cdiac</code> dataset, capturing CDIAC’s estimated global temperature anomalies from 1850 to 2015. In this question, you will explore these estimated anomalies. Note that you may want to install the <code>CVXR</code> package before attempting this question on your personal computer.[^1] Because CVXR does not work reliably through this online interface, I have also posted a copy of this data <a href="../cdiac.csv">on the course website</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"CVXR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<pre class="{webr}"><code>#| warning: false
+#| message: false
+library(tidyverse)
+if(!file.exists("cdiac.csv")){
+    download.file("https://raw.githubusercontent.com/michaelweylandt/STA9750/main/cdiac.csv", 
+                  destfile="cdiac.csv")
+}
+cdiac &lt;- read_csv("cdiac.csv")
+glimpse(cdiac)</code></pre>
+</div>
+<p>As you can see, this data has 14 columns, with 12 monthly anomalies and 1 annual average anomaly, for a period covering 166 years from 1850 to 2015. Use this data to answer the following questions:</p>
+<ol type="1">
+<li>In what year was the highest annual anomaly observed? The lowest?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We can select the row with the highest and lowest values using the <code>slice_max</code> and <code>slice_min</code> functions from the <code>dplyr</code> package. If we want to specifically get the <code>year</code> column after selecting a single row, we can use the <code>pull</code> function to <em>pull out</em> that one column into a vector:</p>
+<div class="cell">
+<pre class="{webr}"><code>cdiac |&gt; slice_max(annual) |&gt; pull(year)
+
+cdiac |&gt; slice_min(annual) |&gt; pull(year)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li><p>For how many months was 2015 the highest anomaly recorded?</p>
+<p><em>Hint: It will be helpful to <code>pivot_longer</code> this data into a longer format.</em> <em>Note that you can use the <code>:</code> operator when specifying a set of columns to pivot</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(CVXR)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(cdiac)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>cdiac <span class="sc">|&gt;</span> </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>annual) <span class="sc">|&gt;</span> </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols=</span>jan<span class="sc">:</span>dec, <span class="at">names_to=</span><span class="st">"month"</span>, <span class="at">values_to=</span><span class="st">"anomaly"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<pre class="{webr}"><code>cdiac |&gt; 
+    select(-annual) |&gt; 
+    pivot_longer(cols=jan:dec, names_to="month", values_to="anomaly") |&gt; 
+    group_by(month) |&gt; 
+    slice_max(anomaly) |&gt; 
+    ungroup() |&gt; 
+    summarize(n_2015s = sum(year == 2015))</code></pre>
+</div>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li><p>For how many years did July have the largest anomaly of that year?</p>
+<p><em>Hint: You should first pivot the data as in the previous question.</em></p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<pre class="{webr}"><code>cdiac |&gt; 
+    select(-annual) |&gt; 
+    pivot_longer(cols=jan:dec, names_to="month", values_to="anomaly") |&gt; 
+    group_by(year) |&gt; 
+    slice_max(anomaly) |&gt; 
+    ungroup() |&gt; 
+    summarize(n_july = sum(month == "jul"))</code></pre>
+</div>
+</div>
+</div>
+</div>
+<ol start="4" type="1">
+<li><p>What is the probability that a given July exhibits a greater (more positive) anomaly than the annual average anomaly for that year?</p>
+<p><em>Hint: Remember that probabilities can be estimated by constructing a Boolean (<code>TRUE</code>/<code>FALSE</code>) vector and taking its mean.</em></p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<pre class="{webr}"><code>cdiac |&gt; 
+    pivot_longer(cols=jan:dec, names_to="month", values_to="anomaly") |&gt; 
+    filter(month == "jul") |&gt; 
+    mutate(july_greater = anomaly &gt; annual) |&gt;
+    summarize(p_july_greater = mean(july_greater))</code></pre>
+</div>
+</div>
+</div>
+</div>
+<ol start="5" type="1">
+<li>Which month has the highest probability of exceeding the annual anomaly in a given year?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<pre class="{webr}"><code>cdiac |&gt; 
+    pivot_longer(cols=jan:dec, names_to="month", values_to="anomaly") |&gt; 
+    group_by(month) |&gt;
+    mutate(monthly_greater = anomaly &gt; annual) |&gt;
+    summarize(p_greater = mean(monthly_greater)) |&gt;
+    slice_max(p_greater) |&gt;
+    pull(month)</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="plotting-with-ggplot2" class="level1">
+<h1>Plotting with <code>ggplot2</code></h1>
+<p>This week, we’re going to break into project groups and do three <code>ggplot2</code> exercises of increasing difficulty. As you work through these with your teammates, be sure to reflect on what plots and what tools you will need to best present your mini-project and course project findings.</p>
+<section id="practice01" class="level2">
+<h2 class="anchored" data-anchor-id="practice01">Exercise 1: Basic <code>ggplot2</code></h2>
+<p>In this exercise, you will create <code>ggplot2</code> graphics to analyze the <code>diamonds</code> data from the <code>ggplot2</code> package. This data contains pricing and measurements for over 50,000 diamonds sold in the US. (Note that these prices are rather out of date and pre-date the popularity of lab-grown diamonds.) Before beginning this exercise, you might want to read about the <a href="https://www.tiffany.com/engagement/the-tiffany-guide-to-diamonds/">“4 C’s of Diamonds”</a> commonly used to measure quality.</p>
+<ol type="1">
+<li>Make a scatter plot of price vs carat.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<pre class="{webr}"><code>library(ggplot2)
+ggplot(diamonds, aes(x=carat, y=price)) + geom_point()</code></pre>
+</div>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Use <code>stat_smooth</code> to see how the price-carat relationship changes by color.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<pre class="{webr}"><code>library(ggplot2)
+ggplot(diamonds, aes(x=carat, y=price)) + 
+    geom_point() + 
+    stat_smooth()</code></pre>
+</div>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Take your scatter plot from the previous question and iterate it to “publication quality”.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<pre class="{webr}"><code>library(ggplot2)
+ggplot(diamonds, aes(x=carat, y=price)) + 
+    # Make points slightly transparent so plot is less busy
+    geom_point(alpha=0.3) + 
+    xlab("Weight of Round Cut Diamond (Carat)") + 
+    ylab("Price (US Dollars)") + 
+    labs(title="Price as a function of Carat Weight", 
+         caption="Data from the ggplot2 R package.") + 
+    stat_smooth(se=FALSE, 
+                color="red4") +
+    # Format y axis as dollars
+    scale_y_continuous(labels=scales::dollar) + 
+    theme_bw()</code></pre>
+</div>
+<p>If you want to require your trend-line to be monotone increasing, see <a href="https://stackoverflow.com/a/56559086">this StackOverflow answer</a>.</p>
+</div>
+</div>
+</div>
+<ol start="4" type="1">
+<li>Further refine your plot by adding a two-way small-multiples design for color and cut.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<pre class="{webr}"><code>library(ggplot2)
+ggplot(diamonds, aes(x=carat, y=price)) + 
+    geom_point(alpha=0.3) + 
+    xlab("Weight of Round Cut Diamond (Carat)") + 
+    ylab("Price (US Dollars)") + 
+    labs(title="Price as a function of Carat Weight", 
+         caption="Data from the ggplot2 R package.") + 
+    stat_smooth(se=FALSE, 
+                color="red4") +
+    scale_y_continuous(labels=scales::dollar) + 
+    theme_bw() + 
+    facet_grid(cut ~ color)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<ol start="5" type="1">
+<li><p>Create a <a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">frequency polygon</a> plot of price, broken out by different diamond cuts.</p>
+<p><em>Hint: Before trying this new <code>geom_</code>, make sure to read the documentation and identify required aesthetics.</em></p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<pre class="{webr}"><code>ggplot(diamonds, 
+       aes(x=price, color=cut)) + 
+    # Increase bin count from default 30 to show more detail
+    geom_freqpoly(bins=100) + 
+    # Log scale to spread-out x-axis
+    scale_x_log10(labels=scales::dollar) + 
+    xlab("Price (USD)") + 
+    theme_bw() + 
+    theme(legend.position="bottom") + 
+    # Sequential palette since colors are ordered from worst to best
+    scale_color_brewer(name="Color", type="seq", palette=2) + 
+    ylab(NULL) # Remove y label since it's not interpretable for histograms</code></pre>
+</div>
+</div>
+</div>
+</div>
+<ol start="6" type="1">
+<li>Create a scatter plot of color by clarity. Why is this plot not useful?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<pre class="{webr}"><code>ggplot(diamonds, aes(x=color, y=clarity)) + geom_point()</code></pre>
+</div>
+<p>This plot is not useful because both the <span class="math inline">\(x\)</span>- and <span class="math inline">\(y\)</span>-axis are <em>discrete</em> (categorical) values, resulting in significant overplotting. Alternative visualizations should be used when considering data of this type.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="practice02" class="level2">
+<h2 class="anchored" data-anchor-id="practice02">Exercise 2: Trend Analysis with <code>ggplot2</code></h2>
+<p>Let’s return to the <code>cdiac</code> data discussed above. In this set of exercises, you will use <code>geom_line</code> to create <em>line plots</em> visualizing trends in this data.</p>
+<ol type="1">
+<li>Use <code>geom_line</code> to plot the estimated annual global mean temperature (GMT) anomaly from 1850 to 2015.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<pre class="{webr}"><code>ggplot(cdiac, aes(x=year, y=annual)) + 
+    geom_point()</code></pre>
+</div>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li><p>Plot the GMT anomaly for each month on the same plot as different lines.</p>
+<p><em>Hint: You will need to use a <code>pivot_longer</code> to get the data into the appropriate shape. <code>ggplot2</code> expects one “data point” per row.</em></p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<pre class="{webr}"><code>cdiac |&gt; 
+    select(-annual) |&gt; 
+    pivot_longer(cols=jan:dec, 
+                 names_to="month", 
+                 values_to="anomaly") |&gt; 
+    ggplot(aes(x=year, 
+               y=anomaly, 
+               color=month)) + 
+    geom_line() + 
+    theme_bw() + 
+    xlab("Year") + 
+    ylab("GMT Anomaly [K]") + 
+    labs(caption="Data from CDIAC via CVXR") + 
+    theme(legend.position="bottom") + 
+    # Specify palette from name (compare to ColorBrewer site)
+    scale_color_brewer(name="Month", type="qual", palette="Paired")</code></pre>
+</div>
+<p>This solution has a problem, however: the months appear in <em>alphabetical</em> order rather than their actual order. To address this, we need to transform month into an <strong>factor</strong> type with the levels in a specific order. This is a hair beyond the scope of this course, but I’ll show you how to do so using the <code>forcats</code> package (<code>tidyverse</code> tools for <code>factors</code>) here:</p>
+<div class="cell">
+<pre class="{webr}"><code>library(forcats)
+cdiac |&gt; 
+    select(-annual) |&gt; 
+    pivot_longer(cols=jan:dec, 
+                 names_to="month", 
+                 values_to="anomaly") |&gt; 
+    mutate(month = fct(month)) |&gt; # Easy here since already in correct order
+    # Optional to convert jan =&gt; January, etc.
+    mutate(month = fct_relabel(month, 
+                               \(x) month.name[which(tolower(month.abb) == x)])) |&gt;
+    ggplot(aes(x=year, 
+               y=anomaly, 
+               color=month)) + 
+    geom_line() + 
+    theme_bw() + 
+    xlab("Year") + 
+    ylab("GMT Anomaly [K]") + 
+    labs(caption="Data from CDIAC via CVXR") + 
+    theme(legend.position="bottom") + 
+    # Specify palette from name (compare to ColorBrewer site)
+    scale_color_brewer(name="Month", type="qual", palette="Paired")</code></pre>
+</div>
+<p>When dealing with this sort of ‘spaghetti’ (overlapping lines) plot, one of my favorite strategies is to plot some sort of <em>average</em> in bolder line and to plot the individual entries that go into that average semi-transparently. For instance:</p>
+<div class="cell">
+<pre class="{webr}"><code>cdiac |&gt; 
+    pivot_longer(jan:dec, 
+                 names_to="month", 
+                 values_to="anomaly") |&gt;
+    mutate(month=factor(month, 
+                        ordered=TRUE, 
+                        levels=tolower(month.abb), 
+                        labels=month.name)) |&gt;
+    ggplot(aes(x=year)) + 
+        geom_line(aes(y=anomaly, color=month), alpha=0.2) + 
+        geom_line(aes(y=annual), linewidth=1.5, color="red4") + 
+    theme(legend.position="bottom") + 
+    scale_color_discrete(name="Month") + 
+    xlab("Year") + 
+    ylab("GMT Anomaly (Pre-Industrial Baseline) [K]") + 
+    theme_bw() + 
+    theme(legend.position="bottom") + 
+    guides(color=guide_legend(override.aes=list(alpha=1)))</code></pre>
+</div>
+<p>This lets us see both the overall trend and use the month-to-month variability as a proxy for sampling variability.</p>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li><p>Plot the monthly GMT anomaly series as one long line (with a point for each month).</p>
+<p><em>Hint: Use the <code>ym</code> function from the <code>lubridate</code> package to combine the year and month into a single Date object. Something like <code>time=lubridate::ym(paste(year, month))</code> should suffice.</em></p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<pre class="{webr}"><code>cdiac |&gt; 
+    select(-annual) |&gt; 
+    pivot_longer(cols=jan:dec, 
+                 names_to="month", 
+                 values_to="anomaly") |&gt; 
+    mutate(time = ym(paste(year, month))) |&gt; 
+    ggplot(aes(x=time, 
+               y=anomaly)) + 
+    geom_line() + 
+    theme_bw() + 
+    xlab("Year") + 
+    ylab("GMT Anomaly [K]") + 
+    labs(caption="Data from CDIAC via CVXR")</code></pre>
+</div>
+</div>
+</div>
+</div>
+<ol start="4" type="1">
+<li>Now let’s focus on July: use the <code>runmed()</code> function to add a second series to the data frame containing the running median July GMT anomaly over the previous 5 years. Plot this and the raw July data on the same plot. Is there evidence of an increasing warming trend?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<pre class="{webr}"><code>cdiac |&gt; 
+    select(year, jul) |&gt; 
+    mutate(trend = runmed(jul, 5)) |&gt; 
+    pivot_longer(cols=c(jul, trend), 
+                 names_to="series", 
+                 values_to="anomaly") |&gt; 
+    mutate(series = case_when(
+        series == "jul" ~ "Annual July Anomaly", 
+        series == "trend" ~ "Running 5-year Median of July Anomaly"
+    )) |&gt;
+    ggplot(aes(x=year, 
+               y=anomaly, 
+               color=series)) + 
+    geom_point() + 
+    geom_line() + 
+    theme_bw() + 
+    xlab("Year") + 
+    ylab("GMT Anomaly [K]") + 
+    labs(caption="Data from CDIAC via CVXR") + 
+    scale_color_brewer(name=NULL, type="qual", palette=2) + 
+    theme(legend.position="bottom")</code></pre>
+</div>
+<p>Since the overlay of the individual years over the trend is a bit noisy, we can adjust the <code>alpha</code> aesthetic (transparency) to make the individual years a bit less visible.</p>
+<div class="cell">
+<pre class="{webr}"><code>cdiac |&gt; 
+    select(year, jul) |&gt; 
+    mutate(trend = runmed(jul, 5)) |&gt; 
+    pivot_longer(cols=c(jul, trend), 
+                 names_to="series", 
+                 values_to="anomaly") |&gt; 
+    mutate(
+        alpha = if_else(series == "jul", 0.3, 1), 
+        series = case_when(
+            series == "jul" ~ "Annual July Anomaly", 
+            series == "trend" ~ "Running 5-year Median of July Anomaly"
+    )) |&gt;
+    ggplot(aes(x=year, 
+               y=anomaly, 
+               color=series, 
+               alpha = alpha)) + 
+    geom_point() + 
+    geom_line() + 
+    theme_bw() + 
+    xlab("Year") + 
+    ylab("GMT Anomaly [K]") + 
+    labs(caption="Data from CDIAC via CVXR") + 
+    scale_color_brewer(name=NULL, type="qual", palette=2) + 
+    scale_alpha_identity() + 
+    theme(legend.position="bottom")</code></pre>
+</div>
+</div>
+</div>
+</div>
+<ol start="5" type="1">
+<li><p>For each year, identify the warmest month (as measured by GMT anomaly). Create a bar char showing the probability a given month was the hottest (greatest anomaly) in its year.</p>
+<p><em>Hint: Make sure your <span class="math inline">\(x\)</span>-axis is in reasonable (chronological) order, not alphabetical. The following code snippet may help:</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">month =</span> <span class="fu">factor</span>(month, </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">levels=</span><span class="fu">str_to_lower</span>(month.abb), </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">labels=</span>month.name,</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">ordered=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This takes a column called <code>month</code> and marks it as an <code>ordered</code> categorical variable (<code>factor</code>), with order given by <code>str_to_lower(month.abb)</code> (<code>month.abb</code> is a built-in variable in <code>R</code>, but it is capitalized, unlike the <code>cdiac</code> variables) and names to be printed from <code>month.name</code>.</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<pre class="{webr}"><code>cdiac |&gt; 
+    select(-annual) |&gt; 
+    pivot_longer(jan:dec, 
+                 names_to="month", 
+                 values_to="anomaly") |&gt; 
+    group_by(year) |&gt; 
+    slice_max(anomaly) |&gt; 
+    ungroup() |&gt; 
+    count(month) |&gt; 
+    mutate(prob_month = n / sum(n), 
+           month = factor(month, 
+                          levels=str_to_lower(month.abb), 
+                          labels=month.name,
+                          ordered=TRUE)) |&gt;
+    ggplot(aes(x=month, y=prob_month)) + 
+    geom_col() + 
+    theme_bw() + 
+    xlab(NULL) + # Don't need to label - obvious
+    ylab("Probability of Hottest Month in Year") + 
+    scale_y_continuous(labels=scales::percent) + 
+    # Tweak formatting for legibility
+    theme(axis.text.x = element_text(angle=90, 
+                                     vjust=0.5, 
+                                     hjust=1,
+                                     size=rel(1.2))) </code></pre>
+</div>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/Ghirschhorn\.github\.io\/STA9750-2025-FALL\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

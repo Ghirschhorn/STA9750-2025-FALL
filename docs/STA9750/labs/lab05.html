@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>?var:course.short Week 5 In-Class Activity: Let us JOIN Our Tables Together – STA 9750 Submission Material</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d3cb4660bf9ab46fc552571f6bf3984b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">STA 9750 Submission Material</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><strong>?var:course.short</strong> Week 5 In-Class Activity: Let us <code>JOIN</code> Our Tables Together</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="cell">
+<pre class="{webr}"><code>#| echo: false
+#| message: true
+webr::install("httpuv", quiet=TRUE)
+webr::install("gradethis", quiet=TRUE)
+webr::install("tidyverse", quiet=TRUE)
+webr::install("nycflights13", quiet=TRUE)
+
+suppressPackageStartupMessages(library(tidyverse))
+
+if(require("gradethis", quietly = TRUE)){
+    message("Auto-grader initialized successfully. You can now begin exercises.")
+}</code></pre>
+</div>
+<div class="cell" data-edit="false">
+<pre class="{webr}"><code>#| edit: false
+#| output: false
+webr::install("gradethis", quiet = TRUE)
+library(gradethis)
+options(webr.exercise.checker = function(
+  label, user_code, solution_code, check_code, envir_result, evaluate_result,
+  envir_prep, last_value, engine, stage, ...
+) {
+  if (is.null(check_code)) {
+    # No grading code, so just skip grading
+    invisible(NULL)
+  } else if (is.null(label)) {
+    list(
+      correct = FALSE,
+      type = "warning",
+      message = "All exercises must have a label."
+    )
+  } else if (is.null(solution_code)) {
+    list(
+      correct = FALSE,
+      type = "warning",
+      message = htmltools::tags$div(
+        htmltools::tags$p("A problem occurred grading this exercise."),
+        htmltools::tags$p(
+          "No solution code was found. Note that grading exercises using the ",
+          htmltools::tags$code("gradethis"),
+          "package requires a model solution to be included in the document."
+        )
+      )
+    )
+  } else {
+    gradethis::gradethis_exercise_checker(
+      label = label, solution_code = solution_code, user_code = user_code,
+      check_code = check_code, envir_result = envir_result,
+      evaluate_result = evaluate_result, envir_prep = envir_prep,
+      last_value = last_value, stage = stage, engine = engine)
+  }
+})</code></pre>
+</div>
+<div class="cell">
+<pre class="{webr}"><code>#| echo: false
+webr::install(c("tidyverse","nycflights13"), quiet=TRUE)
+suppressPackageStartupMessages(library(tidyverse))
+library(nycflights13)</code></pre>
+</div>
+<section id="slides" class="level1">
+<h1><a href="../../STA9750/slides/slides05.html">Slides</a></h1>
+</section>
+<section id="review" class="level1">
+<h1>Review Practice</h1>
+<p>The file <a href="https://github.com/michaelweylandt/STA9750/blob/main/births.csv">“births.csv”</a> in the course repository contains daily US birth counts for 20 years from 1969 to 1988, obtained from the US Social Security Administration. Download this file and read it into <code>R</code> and answer the following review questions with your group.</p>
+<p>The following code may be useful:</p>
+<div class="cell">
+<pre class="{webr}"><code>if(!file.exists("births.csv")){
+    download.file("https://raw.githubusercontent.com/michaelweylandt/STA9750/main/births.csv", 
+                  destfile="births.csv")
+}
+library(readr)
+library(dplyr)
+
+births &lt;- read_csv("births.csv")
+glimpse(births)</code></pre>
+</div>
+<p>The columns here are:</p>
+<ul>
+<li><code>id</code> : The day in the entire time series (going up to <span class="math inline">\(\approx 365 * 20\)</span> plus a few for leap day)</li>
+<li><code>day_of_year</code>: the day in the year (1 to 365/366)</li>
+<li><code>day_of_week</code>: the day of the week, coded as an integer</li>
+<li><code>day</code>, <code>month</code>, <code>year</code>: the parts of the date as we normally think of them</li>
+<li><code>births</code>: the number of births that day.</li>
+</ul>
+<ol type="1">
+<li>How many children were born on January 1st, 1984?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<pre class="{webr}"><code>#| eval: true
+births |&gt; filter(day==1, month==1, year==1984)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>How many total children were born in 1984?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<pre class="{webr}"><code>births |&gt; filter(year==1984) |&gt; summarize(sum(births))</code></pre>
+</div>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>How many children were born each year? (Print a 20 row table)</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<pre class="{webr}"><code>births |&gt; group_by(year) |&gt; summarize(n_births = sum(births))</code></pre>
+</div>
+</div>
+</div>
+</div>
+<ol start="4" type="1">
+<li>How many more children were born each year than the preceeding? (The <code>lag</code> function will be useful here!)</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<pre class="{webr}"><code>births |&gt; 
+    group_by(year) |&gt;
+    summarize(n_births = sum(births)) |&gt;
+    mutate(increase_births = n_births - lag(n_births))</code></pre>
+</div>
+</div>
+</div>
+</div>
+<ol start="5" type="1">
+<li>On average, in what month are the most children born?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<pre class="{webr}"><code>births |&gt; 
+    group_by(month) |&gt;
+    summarize(avg_births = mean(births)) |&gt;
+    slice_max(avg_births)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<p>After completing these, work with your group to formulate and answer three more advanced questions with your group.</p>
+</section>
+<section id="multi-table-operations" class="level1">
+<h1>Multi Table Operations</h1>
+<p>This week, we are going to dive into the most useful “multi-table” <code>dplyr</code> operations, the <code>join</code> family. We will focus on the “big two” joins:</p>
+<ul>
+<li><code>inner_join</code></li>
+<li><code>left_join</code></li>
+</ul>
+<p>These inspired by the <code>SQL</code> joins, <code>INNER JOIN</code> and<code>LEFT JOIN</code>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> We will apply them to the various tables in the <code>nycflights13</code> data set. Recall the structure of each of these tables:</p>
+<div class="cell">
+<pre class="{webr}"><code>library(nycflights13)
+glimpse(flights)</code></pre>
+</div>
+<div class="cell">
+<pre class="{webr}"><code>glimpse(airlines)</code></pre>
+</div>
+<div class="cell">
+<pre class="{webr}"><code>glimpse(airports)</code></pre>
+</div>
+<div class="cell">
+<pre class="{webr}"><code>glimpse(planes)</code></pre>
+</div>
+<div class="cell">
+<pre class="{webr}"><code>glimpse(weather)</code></pre>
+</div>
+<p>From here, we can see that there are many relationships between these tables. For example, the <code>origin</code> and <code>dest</code> columns of the <code>flights</code> table, representing the origin and destination airport respectively, both correspond to the FAA identifiers used by the <code>faa</code> column of the <code>airports</code> table. These “commonalities” form the basis of join specifications.</p>
+<section id="join-specifications" class="level2">
+<h2 class="anchored" data-anchor-id="join-specifications">Join Specifications</h2>
+<p><code>dplyr</code> specifies joins using the <code>join_by</code> function. The output of the <code>join_by</code> function, also known as a “join specification” is a series of logical tests applied to pairs of rows. The results of these logical tests are used to identify “matches” between rows. Joins differ primarily on how they use the outputs of these logical tests to construct their output.</p>
+<p>The simplest and most useful logical test to use in a join is an equality test. In <code>dplyr</code>, these are simply written as</p>
+<div class="cell">
+<pre class="{webr}"><code>join_by(left_name == right_name)</code></pre>
+</div>
+<p>This type of test checks whether the value in the <code>left_name</code> column of the first (left) argument matches the value in the <code>right_name</code> column of the second (right) argument.</p>
+<p>For example, if I wanted to join the <code>origin</code> column of <code>flights</code> table to the <code>faa</code> column of the <code>airports</code> table, I might use something like the following:</p>
+<div class="cell">
+<pre class="{webr}"><code>inner_join(flights, airports, join_by(origin == faa))</code></pre>
+</div>
+<p>Here <code>origin</code> is taken to be a column from the first (left) table and <code>faa</code> is taken to be a column from the second (right) table. As with other <code>dplyr</code> functions, there is a bit of programming magic used to allow column names to be used as variables and interpreted correctly.</p>
+<p>For the airport identifiers, we only need to match on the single unique ID. (We can assume the FAA assigns unique IDs to each airport.) In other circumstances, we need to combine several logical tests to get a true match.</p>
+<p>For example, suppose we want to align our flights with the weather at their origin airport at scheduled take off time. Here, we’d need to combine the <code>flights</code> and <code>weather</code> table on <em>many</em> columns:</p>
+<ul>
+<li><code>origin</code> to <code>origin</code></li>
+<li><code>year</code> to <code>year</code></li>
+<li><code>month</code> to <code>month</code></li>
+<li><code>day</code> to <code>day</code></li>
+<li><code>hour</code> to <code>hour</code></li>
+</ul>
+<p>In this case, we’d pass 5 equality conditions to <code>join_by</code>:</p>
+<div class="cell">
+<pre class="{webr}"><code>inner_join(flights, 
+           weather, 
+           join_by(origin == origin,
+                   year == year,
+                   month == month,
+                   day == day,
+                   hour == hour))</code></pre>
+</div>
+<p>Here we look only at those rows which match on <em>all 5</em> tests. In this way, <code>join_by</code> behaves like <code>filter</code>: it “passes” the <em>intersection</em> of positive results.</p>
+<p>Note that it is relatively common for matched columns to have the same name in both tables: to support this case, <code>dplyr</code> reads a single column name as “self-equality”. So the above code can be more concisely written as:</p>
+<div class="cell">
+<pre class="{webr}"><code>inner_join(flights, 
+           weather, 
+           join_by(origin, 
+                   year, 
+                   month, 
+                   day, 
+                   hour))</code></pre>
+</div>
+<p>I recommend <em>against</em> using this short-cut. It takes hardly more time to write your intent explicitly and it’s far more robust. <em>Measure twice, cut once</em>.</p>
+<p>Unfortunately, it is not easy to perform an “OR” in <code>join_by</code>. We may cover this below, time allowing.</p>
+<p>We now turn to specific joins. All of these joins use the <code>join_by</code> operator but they construct results differently based on its output.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Doubling Names">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Doubling Names
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that <code>data.frame</code>s cannot have multiple columns with the same name. If a name is duplicated coming out of a join, <code>dplyr</code> will add <code>.x</code> and <code>.y</code> to the column names:</p>
+<div class="cell">
+<pre class="{webr}"><code>flights |&gt; 
+    inner_join(airlines, join_by(carrier == carrier)) |&gt; 
+    inner_join(airports, join_by(origin == faa)) </code></pre>
+</div>
+<p>Here the output has two <code>name</code> columns: one from <code>airlines</code>, the name of the airline, and one from <code>airports</code>, the name of the origin airport. To resolve this ambiguity, the columns are automatically renamed to <code>name.x</code>, coming from the first table, here <code>airlines</code> and <code>name.y</code>, coming from the second table, here <code>airports</code>. If you want to change these suffixes, you can provide them explicitly:</p>
+<div class="cell">
+<pre class="{webr}"><code>flights |&gt; 
+    inner_join(airlines, join_by(carrier == carrier)) |&gt; 
+    inner_join(airports, 
+               join_by(origin == faa), 
+               suffix = c("_airline", "_origin_airport")) </code></pre>
+</div>
+<p>Now we get <code>name_airline</code> and <code>name_origin_airport</code> instead, which may be easier to use. They are certainly clearer to read.</p>
+</div>
+</div>
+</section>
+<section id="inner-joins" class="level2">
+<h2 class="anchored" data-anchor-id="inner-joins">Inner Joins</h2>
+<p>The most common and most important join in data analysis is the <code>inner_join</code>. The inner join returns <em>matches</em> between two tables. Conceptually, the inner join constructs all possible pairs of rows between the two tables (so <code>NROW(x) * NROW(y)</code> total rows) and then filters down to those which pass the <code>join_by</code> test. In practice, more efficient algorithms are used to prevent wasteful computation.</p>
+<p>Inner joins are used when seeking matches between two tables. They are particularly useful when both tables are “comprehensive” and we are sure that there are matches. For instance, we can use an <code>inner_join</code> to combine most of the tables in <code>nycflights13</code> because they come from a comprehensive government data source. (<em>E.g.</em>, No flights going to secret “unauthorized” airports.)</p>
+<p>Let’s start by asking what the <em>average</em> arrival delay of flights going to west coast airports is. We do not have enough information to answer this using the <code>flights</code> table alone. To identify west coast airports, let’s filter <code>airports</code> on <code>tzone</code>:</p>
+<div class="cell">
+<pre class="{webr}"><code>west_coast_airports &lt;- airports |&gt; filter(tzone == "America/Los_Angeles")</code></pre>
+</div>
+<p>We can now join this to the original flights table to find only those flights with destination matches in <code>west_coast_airports</code>:</p>
+<div class="cell">
+<pre class="{webr}"><code>inner_join(flights, west_coast_airports, join_by(dest == faa))</code></pre>
+</div>
+<p>Here, we have only a subset of our original <code>flights</code> table. From this, we can compute our relevant summary statistic:</p>
+<div class="cell">
+<pre class="{webr}"><code>inner_join(flights, west_coast_airports, join_by(dest == faa)) |&gt;
+    summarize(mean(arr_delay, na.rm=TRUE))</code></pre>
+</div>
+<p>Is this any better than the following alternative approach:</p>
+<div class="cell">
+<pre class="{webr}"><code>inner_join(flights, airports, join_by(dest == faa)) |&gt;
+    filter(tzone == "America/Los_Angeles") |&gt;
+    drop_na() |&gt;
+    summarize(mean(arr_delay, na.rm=TRUE))</code></pre>
+</div>
+<p>Formally, these are basically equivalent. (<code>filter</code> and <code>inner_join</code> <em>commute</em>). As usual, it’s a matter of <em>communicating intent</em>. Here the single line <code>filter(tzone == "America/Los_Angeles")</code> is simple enough it probably doesn’t need a separate variable. But if, instead of a one line operation, we performed a very complex set of filtering options, we may benefit from giving it a separate name as opposed to trying to shoe-horn the complex filtering into a pipeline.</p>
+<p>Performance-wise, it is a bit better to perform <code>filter</code> before <code>inner_join</code> (Why? Think about the size of the result of each step.) but the difference is rarely material. <em>Clarity of intent</em>, not <em>optimizing performance</em>, should dictate the order in which you perform steps.</p>
+<p>Both approaches are also equivalent to:</p>
+<div class="cell">
+<pre class="{webr}"><code>inner_join(flights, 
+           airports |&gt; filter(tzone == "America/Los_Angeles"), 
+           join_by(dest == faa)) |&gt;
+    drop_na() |&gt;
+    summarize(mean(arr_delay, na.rm=TRUE))</code></pre>
+</div>
+<p>But I find this sort of “<code>filter</code> inside <code>join</code> argument” to be terribly difficult to read: it mixes standard (inside-out) and piped (left to right) evaluation orders in a confusing manner. Avoid this!</p>
+<p>Work with your group to answer the following questions using <code>inner_join</code>.</p>
+<ol type="1">
+<li><p>What is the name of the airline with the longest average departure delay?</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<pre class="{webr}"><code>flights |&gt; 
+    group_by(carrier) |&gt; 
+    summarize(mean_dep_delay = mean(dep_delay, na.rm=TRUE)) |&gt; 
+    inner_join(airlines, join_by(carrier == carrier)) |&gt; 
+    slice_max(name) |&gt; 
+    pull(name)</code></pre>
+</div>
+</div>
+</div>
+</div></li>
+<li><p>What is the name of the origin airport with the longest average departure delay?</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<pre class="{webr}"><code>flights |&gt; 
+    group_by(origin) |&gt; 
+    summarize(mean_dep_delay = mean(dep_delay, na.rm=TRUE)) |&gt; 
+    inner_join(airports, join_by(origin == faa)) |&gt; 
+    slice_max(name) |&gt; 
+    pull(name)</code></pre>
+</div>
+</div>
+</div>
+</div></li>
+<li><p>What is the name of the destination airport with the longest average departure delay?</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<pre class="{webr}"><code>flights |&gt; 
+    group_by(dest) |&gt; 
+    summarize(mean_dep_delay = mean(dep_delay, na.rm=TRUE)) |&gt; 
+    inner_join(airports, join_by(dest == faa)) |&gt; 
+    slice_max(name) |&gt; 
+    pull(name)</code></pre>
+</div>
+</div>
+</div>
+</div></li>
+<li><p>Are average delays longer for East-coast destinations or West-coast destinations?</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>To answer this, let’s define East/West coast by time zones.</p>
+<div class="cell">
+<pre class="{webr}"><code>flights |&gt; 
+    group_by(dest) |&gt; 
+    summarize(mean_dep_delay = mean(dep_delay, na.rm=TRUE)) |&gt; 
+    inner_join(airports, join_by(dest == faa)) |&gt; 
+    group_by(tzone) |&gt; 
+    summarize(mean_dep_delay = mean(mean_dep_delay, na.rm=TRUE)) |&gt; 
+    filter(tzone %in% c("America/New_York", "America/Los_Angeles")) |&gt; 
+    slice_max(mean_dep_delay) |&gt; 
+    pull(tzone)</code></pre>
+</div>
+<p>So it looks like East Coast flights actually do take off a bit later on average.</p>
+<p>This analysis is not quite right however as it treats all airports as being equally important when computing the time zone averages, instead of weighting them by total number of flights. To do this properly, we should probably keep track of i) the number of flights to each airport; and ii) the total minutes of delays to that airport. Putting these together, we’ll be able to appropriately weight our answers.</p>
+<div class="cell">
+<pre class="{webr}"><code>flights |&gt; 
+    group_by(dest) |&gt; 
+    summarize(total_dep_delay = sum(dep_delay, na.rm=TRUE), 
+              n_flights = n()) |&gt; 
+    inner_join(airports, join_by(dest == faa)) |&gt; 
+    group_by(tzone) |&gt; 
+    summarize(total_dep_delay = sum(total_dep_delay, na.rm=TRUE), 
+              n_flights = sum(n_flights)) |&gt; 
+    filter(tzone %in% c("America/New_York", "America/Los_Angeles")) |&gt; 
+    mutate(mean_dep_delay = total_dep_delay / n_flights) |&gt; 
+    slice_max(mean_dep_delay) |&gt; 
+    pull(tzone)</code></pre>
+</div>
+<p>In this case, the answer doesn’t actually change, but it’s good to know we did the right thing.</p>
+</div>
+</div>
+</div></li>
+<li><p>Which plane (<code>tailnum</code>) flew the most times leaving NYC? Who manufactured it?</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<pre class="{webr}"><code>flights |&gt; 
+    filter(!is.na(tailnum)) |&gt; 
+    group_by(tailnum) |&gt; 
+    summarize(n_flights = n()) |&gt; 
+    slice_max(n_flights) |&gt; 
+    inner_join(planes, join_by(tailnum == tailnum))</code></pre>
+</div>
+<p>Hmmm…. That’s odd. Let’s see if we can figure out what happened.</p>
+<p>Whenever we get back a zero row join result, it’s usually a sign that the quantity (key) being joined doesn’t exist in both tables. We can verify this manually:</p>
+<div class="cell">
+<pre class="{webr}"><code>top_tailnum &lt;- flights |&gt; 
+    filter(!is.na(tailnum)) |&gt; 
+    group_by(tailnum) |&gt; 
+    summarize(n_flights = n()) |&gt; 
+    slice_max(n_flights) |&gt; 
+    pull(tailnum)</code></pre>
+</div>
+<p>and</p>
+<div class="cell">
+<pre class="{webr}"><code>top_tailnum %in% (planes |&gt; pull(tailnum))</code></pre>
+</div>
+<p>How should we deal with this? Two options:</p>
+<ol type="1">
+<li>We can acknowledge that it’s a frequently used plane with missing information, likely because it’s a private plane; and/or</li>
+<li>We can modify our analysis to instead return the most common plane <em>for which we have info</em>.</li>
+</ol>
+<p>To do the latter, we need to move our filtering to <em>after</em> the join:</p>
+<div class="cell">
+<pre class="{webr}"><code>flights |&gt; 
+    filter(!is.na(tailnum)) |&gt; 
+    group_by(tailnum) |&gt; 
+    summarize(n_flights = n()) |&gt; 
+    inner_join(planes, join_by(tailnum == tailnum)) |&gt; 
+    slice_max(n_flights) |&gt; 
+    select(tailnum, manufacturer) </code></pre>
+</div>
+<p>Note that the use of an <code>inner_join</code> here guarantees us that our selected <code>tailnum</code> is indeed one for which we have information.</p>
+</div>
+</div>
+</div></li>
+<li><p>Which manufacturer has the most planes flying out of NYC airports?</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>There is a bit of ambiguity, but if we interpret as the most <em>flights</em> per manufacturer, we get the following:</p>
+<div class="cell">
+<pre class="{webr}"><code>flights |&gt; 
+    inner_join(planes, join_by(tailnum == tailnum)) |&gt; 
+    count(manufacturer) |&gt; 
+    slice_max(n) |&gt; 
+    pull(manufacturer)</code></pre>
+</div>
+<p>If instead we look just at pure plane count, treating all planes as equal even if they only departed NYC once, we could instead:</p>
+<div class="cell">
+<pre class="{webr}"><code>flights |&gt; 
+    distinct(tailnum) |&gt; 
+    inner_join(planes, join_by(tailnum == tailnum)) |&gt; 
+    count(manufacturer) |&gt; 
+    slice_max(n) |&gt; 
+    pull(manufacturer)</code></pre>
+</div>
+</div>
+</div>
+</div></li>
+<li><p>Which manufacturer has the longest average flight?</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>As with the earlier question about timezones, there is a bit of ambiguity in how we want to interpret this – should <code>longest</code> be interpreted as time or distance? – but the answer is something like the following:</p>
+<div class="cell">
+<pre class="{webr}"><code>flights |&gt; 
+    inner_join(planes, join_by(tailnum == tailnum)) |&gt; 
+    group_by(manufacturer) |&gt; 
+    summarize(mean_air_time = mean(air_time, na.rm=TRUE)) |&gt; 
+    slice_max(mean_air_time) |&gt; 
+    pull(manufacturer)</code></pre>
+</div>
+</div>
+</div>
+</div></li>
+<li><p>What model of plane has the smallest average delay leaving NYC?</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Something like:</p>
+<div class="cell">
+<pre class="{webr}"><code>flights |&gt; 
+    inner_join(planes, join_by(tailnum == tailnum)) |&gt; 
+    group_by(model) |&gt; 
+    summarize(mean_dep_delay = mean(dep_delay, na.rm=TRUE)) |&gt; 
+    slice_max(mean_dep_delay) |&gt; 
+    pull(model)</code></pre>
+</div>
+<p>though as before there is some ambiguity in how we should weight the average.</p>
+</div>
+</div>
+</div></li>
+</ol>
+</section>
+<section id="left-join" class="level2">
+<h2 class="anchored" data-anchor-id="left-join">Left Join</h2>
+<p>Left joins are useful when you don’t want to dropped unmatched columns in one table. For instance, suppose we misplace some rows from our <code>airlines</code> table:</p>
+<div class="cell">
+<pre class="{webr}"><code>airlines_major &lt;- airlines |&gt;
+    filter(carrier %in% c("AA", "DL", "UA", "WN", "B6", "AS"))</code></pre>
+</div>
+<p>If we inner join on <code>airlines_major</code>, we <em>loose</em> many of the rows in <code>flights</code>.</p>
+<div class="cell">
+<pre class="{webr}"><code>NROW(flights)
+inner_join(flights, 
+           airlines_major, 
+           join_by(carrier == carrier)) |&gt;
+    NROW()</code></pre>
+</div>
+<p>Sometimes this is what we want, but not always. If we instead use a left join, we keep all of the rows in <code>flights</code>:</p>
+<div class="cell">
+<pre class="{webr}"><code>NROW(flights)
+left_join(flights, 
+          airlines_major, 
+          join_by(carrier == carrier)) |&gt;
+    NROW()</code></pre>
+</div>
+<p>Rows lacking a pair in <code>airlines_major</code> fill the missing columns with <code>NA</code>. This fits our mental model of missing values in <code>R</code>: in theory, these flights should have some carrier name, but given the data at hand, we don’t know what it is.</p>
+<div class="cell">
+<pre class="{webr}"><code>NROW(flights)
+left_join(flights, 
+          airlines_major, 
+          join_by(carrier == carrier)) |&gt;
+    filter(carrier %in% c("MQ", "OO", "VX")) |&gt;
+    glimpse() # Look at 'name' column</code></pre>
+</div>
+<p><code>left_join</code>s are useful if we want to join two tables, but want to avoid dropping any rows from a ‘gold standard’ table.</p>
+<p>We’re not going to say much about <code>right_join</code> since it’s really just a flipped <code>left_join</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">left_join</span>(x, y, <span class="fu">join_by</span>(name_x <span class="sc">==</span> name_y))</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="co"># is the same as</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="fu">right_join</span>(y, x, <span class="fu">join_by</span>(name_y <span class="sc">==</span> name_x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Sometimes one form is more convenient than the other, particularly when one table requires lots of pre-processing that you want to put earlier in the pipeline.</p>
+</section>
+<section id="selecting-join-types" class="level2">
+<h2 class="anchored" data-anchor-id="selecting-join-types">Selecting Join Types</h2>
+<p>Section 19.4 of the <a href="https://r4ds.hadley.nz/joins#how-do-joins-work"><code>R</code> for Data Science</a> textbook provides useful visualizations of the different types of joins. We adapt their Figures 19.2 - 19.8 here.</p>
+<p>Suppose we seek to join two tables, <code>x</code> and <code>y</code>:</p>
+<p><img src="../images/r4ds_2e_join_figs/fig19_2.png" class="img-fluid"></p>
+<p>Here, we see that that these tables have some shared rows (<code>1</code> and <code>2</code>) but some non-shared rows (<code>3</code> in table <code>x</code> and <code>4</code> in table <code>y</code>). Ultimately, different joins will differ in how they treat those non-shared rows.</p>
+<p>To set up a join, you can <em>conceptually</em> think of starting with all possible pairs. For this data set, that’s <span class="math inline">\(9 = 3 \times 3\)</span> total possible pairings:</p>
+<p><img src="../images/r4ds_2e_join_figs/fig19_3.png" class="img-fluid"></p>
+<p>You do not generally want to <em>actually</em> make all these pairs when dealing with large data - this is just a mental tool.</p>
+<p>When you add a join key (<code>join_by()</code>) you are specifying which of these possible pairs you are possibly interested in. All joins will capture the proper matches (<code>1</code> and <code>2</code>) - the only difference is in the treatment of unmatched pairs.</p>
+<p>The most restrictive join – the <code>inner_join</code> – only captures <em>true matches</em>:</p>
+<p><img src="../images/r4ds_2e_join_figs/fig19_4.png" class="img-fluid"></p>
+<p>Here the green and purple (<code>1</code> and <code>2</code>) rows have matches so we keep them. There is no match for the orange or yellow rows so the <code>inner_join</code> discards them.</p>
+<p>If we want to keep the unmatched orange <code>3</code>, we might use a <code>left_join</code>:</p>
+<p><img src="../images/r4ds_2e_join_figs/fig19_5.png" class="img-fluid"></p>
+<p>Here you’re seeing that we keep everything in the left (<code>x</code> table). We don’t have a matching row in the <code>y</code> table, but that’s ok - we just fill it in with our <em>missing</em> value <code>NA</code>.</p>
+<p>The <code>right_join</code> is the exact opposite:</p>
+<p><img src="../images/r4ds_2e_join_figs/fig19_6.png" class="img-fluid"></p>
+<p>Here, we keep everything from the right / bottom / second table. Specifically, we keep the yellow <code>4</code>, but discard the orange <code>3</code>. As before, we fill in the missing value for the <code>x</code> column with an <code>NA</code>.</p>
+<p>Finally, the <code>full_join</code> keeps everything:</p>
+<p><img src="../images/r4ds_2e_join_figs/fig19_7.png" class="img-fluid"> Note importantly that this doesn’t force a match for orange <code>3</code> or yellow <code>4</code>. They are still both unmatched, so they both wind up with <code>NA</code> values. Because the missing data comes from different tables, we now have an <code>NA</code> in both columns.</p>
+<p>If you think this all sounds like Venn diagrams and set theory, you aren’t wrong:</p>
+<p><img src="../images/dplyr_joins.svg" class="img-fluid"></p>
+<p>At this point, you are probably asking yourself <em>when</em> you should use which type of join. There unfortunately isn’t a one-size fits all answer. For me, the choice of join is essentially equivalent to how you want to handle missing values.</p>
+<p>An <code>inner_join</code> is essentially the same as automatically passing <code>na.rm=TRUE</code> to all downstream analysis, while a <code>left_join</code> or similar will produce <code>NA</code>s you have to deal with later. If the <code>NA</code>s are going to be relevant - <em>e.g.</em>, if you want to report the number of unmatched values - I’d use a <code>left_join</code>, but otherwise I find myself reaching for <code>inner_join</code> by default.</p>
+<p>It is sometimes worthwhile to abstract this a bit to think about <em>why</em> your data is missing: in statistics, we often think about three models of missingness:</p>
+<ul>
+<li>Missing Completely at Random (MCAR)</li>
+<li>Missing at Random (MAR)</li>
+<li>Missing Not at Random (MNAR)</li>
+</ul>
+<p>MCAR missingness - when the missingness is truly random and unrelated to any variables of interst - is a strong and rare condition, but it’s really the only situation where it’s totally safe to just drop missing values.</p>
+<p>Dealing with missing data is a bit of an art and often easier to discuss on concrete problems than in the abstract. <em>E.g</em>, in our <code>flights</code> data, the missing values (<code>is.na(arr_delay) == TRUE</code>) correspond to cancelled flights. These aren’t MCAR and they are actually MNAR (the worst case): they are missing precisely because they would have been <em>huge</em> delays. If you simply throw them out, you are technically reporting an accurate value, but you are obscuring a deeper underlying truth.</p>
+<div class="callout callout-style-default callout-caution callout-titled" title="Extra: Going Deeper with Joins">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Extra: Going Deeper with Joins
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We won’t discuss them here, but there are several additional types of joins you might use on rare occasion. I wouldn’t worry about mastering them now, but for completeness:</p>
+<ul>
+<li><code>full_join</code>: this essentially combines the <code>left_join</code> and <code>right_join</code> and never drops rows from either table, even if unmatched</li>
+<li><code>semi_join</code>: this is essentially an <code>inner_join(x, y)</code> that then throws away the <code>y</code> columns and only keeps <code>x</code>. This is primarily useful when you are checking that you have data that can be properly joined later in the analysis or if you have a “gold standard” table you want to be sure you are only looking at subsets of.</li>
+<li><code>anti_join</code>: this is the opposite of an <code>inner_join</code> or <code>semi_join</code>. <code>anti_join(x, y)</code> returns the rows of <code>x</code> that don’t have a match in <code>y</code>. This is mainly used for finding missing data. <em>E.g.</em>, I use an <code>anti_join</code> in some of my code to find students who haven’t submitted an assignment by anti-joining my list of students with the list of submissions I have received.</li>
+<li><code>cross_join</code>: the cross join is essentially the “maximal” join and it returns all possible combinations without doing any subsetting or filtering, <em>i.e.</em>, no <code>join_by</code> statement. This is a bit dangerous to use on anything but small data sets since it can create many rows quickly.</li>
+</ul>
+<p>You can also pass more complex operations to the <code>join_by</code> operator:</p>
+<ul>
+<li><p>Inequality joins: you can do something like <code>join_by(x &gt;= y)</code>. This can be used to do things like cumulative operators for time series:</p>
+<div class="cell">
+<pre class="{webr}"><code>library(tibble)
+ts_df &lt;- tribble(~date,       ~value, 
+                 Sys.Date(),       3, 
+                 Sys.Date() - 1,   2, 
+                 Sys.Date() - 2,   1, 
+                 Sys.Date() - 3,   0)
+dy_df &lt;- data.frame(date = Sys.Date() - (0:3)) |&gt;
+             mutate(weekday = strftime(date, "%A"))
+left_join(ts_df, dy_df, join_by(date &gt;= date)) |&gt; 
+   group_by(date.y) |&gt; 
+   summarize(mean(value))</code></pre>
+</div>
+<p>This is rather advanced.</p></li>
+<li><p>In other circumstances, you won’t have exact equality to match on and can do “nearest” joins using the <code>closest()</code> or <code>between()</code> functions.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="additional-dplyr-functionality" class="level1">
+<h1>Additional <code>dplyr</code> functionality</h1>
+<p><code>dplyr</code> provides some additional functionality that is often useful. While these functions are not as important as the SQL-type verbs we’ve covered above, it is worth being aware of them so that you have a starting point if these types of questions come up in your mini-projects or course project. Unlike the <code>*_join</code> family, there isn’t really an overarching “theory” of these functions: they are just things that come up in data analysis.</p>
+<section id="vector-functions" class="level2">
+<h2 class="anchored" data-anchor-id="vector-functions">Vector Functions</h2>
+<p>Most of the functions we have discussed to this point in the course are either fully vectorized (<code>+</code>, <code>cos</code>, <code>sqrt</code>) or fully summarizing (<code>length</code>, <code>sum</code>, <code>min</code>). There is a third class of functions which are vector-in+vector-out but that also need to look at the whole vector. I divide these broadly into the three categories below.</p>
+<section id="ranking-values" class="level3">
+<h3 class="anchored" data-anchor-id="ranking-values">Ranking Values</h3>
+<p>Often, you will want to put “ranks” or “orders” next to values, so that you can see what is the highest, second highest, etc. While you can get the highest or lowest values rather easily with <code>min</code> and <code>max</code>, getting other ranks is harder.</p>
+<p>These three functions - <code>row_number</code>, <code>min_rank</code>, and <code>dense_rank</code> - are best illustrated by an example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="fl">1.5</span>, <span class="dv">3</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">10</span>, <span class="dv">4</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">rn =</span> <span class="fu">row_number</span>(x), </span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">mn =</span> <span class="fu">min_rank</span>(x), </span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">dr =</span> <span class="fu">dense_rank</span>(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     x rn mn dr
+1  1.5  1  1  1
+2  3.0  2  2  2
+3 10.0  4  4  4
+4 15.0  6  6  5
+5 10.0  5  4  4
+6  4.0  3  3  3</code></pre>
+</div>
+</div>
+<p>As you can see, these differ in how they handle ties (here the two <code>x=10</code> rows):</p>
+<ul>
+<li><code>row_number</code> gives the lower rank to whichever row comes first</li>
+<li><code>min_rank</code> gives them both the lower rank and then “skips” to make up</li>
+<li><code>dense_rank</code> gives them both the lower rank, like <code>min_rank</code>, but doesn’t skip values to account for the tie</li>
+</ul>
+<p>This brings up an important element of these types of functions: they are the first things we have seen that are sensitive to row order! This makes them a bit unpredictable so if you need tight quality control of outputs, it’s usually a good idea to have an <code>arrange</code> just before using them.</p>
+<p>In more statistical contexts, we might use percentiles instead of ranks:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="fl">1.5</span>, <span class="dv">3</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">10</span>, <span class="dv">4</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">pr =</span> <span class="fu">percent_rank</span>(x), </span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">cd =</span> <span class="fu">cume_dist</span>(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     x  pr        cd
+1  1.5 0.0 0.1666667
+2  3.0 0.2 0.3333333
+3 10.0 0.6 0.8333333
+4 15.0 1.0 1.0000000
+5 10.0 0.6 0.8333333
+6  4.0 0.4 0.5000000</code></pre>
+</div>
+</div>
+<p>Here the percentiles let us say, e.g., 60% of other rows are below this row. The methods differ essentially in how they treat the endpoints.</p>
+</section>
+<section id="cumulative-running-values" class="level3">
+<h3 class="anchored" data-anchor-id="cumulative-running-values">Cumulative (Running) Values</h3>
+<p>Particularly when dealing with temporal data, <em>cumulative</em> statistics may be useful:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">date =</span> <span class="fu">Sys.Date</span>() <span class="sc">-</span> <span class="fu">seq</span>(<span class="dv">7</span>, <span class="dv">1</span>), </span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">value =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">500</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">cum_mean =</span> <span class="fu">cummean</span>(value), </span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">cum_sum  =</span> <span class="fu">cumsum</span>(value), </span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">cum_max  =</span> <span class="fu">cummax</span>(value), </span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">cum_min  =</span> <span class="fu">cummin</span>(value))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        date value  cum_mean cum_sum cum_max cum_min
+1 2025-11-15     1  1.000000       1       1       1
+2 2025-11-16     5  3.000000       6       5       1
+3 2025-11-17    10  5.333333      16      10       1
+4 2025-11-18    25 10.250000      41      25       1
+5 2025-11-19    50 18.200000      91      50       1
+6 2025-11-20   100 31.833333     191     100       1
+7 2025-11-21   500 98.714286     691     500       1</code></pre>
+</div>
+</div>
+<p>Clearly, this sort of cumulative value is highly sensitive to row order.</p>
+<p>It is also worth distinguishing <em>cumulative</em> values - which include <em>all</em> values up to that point - from <em>running</em> values - which only use a fixed lookback window. Running statistics are not included in <code>dplyr</code> and will require other packages.</p>
+</section>
+<section id="shift-functions" class="level3">
+<h3 class="anchored" data-anchor-id="shift-functions">Shift Functions</h3>
+<p>Similarly, in time series, it is useful to look at the previous or next values to compute things like percent change. Here the <code>lead</code> and <code>lag</code> functions may be helpful:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">date =</span> <span class="fu">Sys.Date</span>() <span class="sc">-</span> <span class="fu">seq</span>(<span class="dv">7</span>, <span class="dv">1</span>), </span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">value =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">500</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">prev_value =</span> <span class="fu">lag</span>(value), </span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">pct_change =</span> <span class="dv">100</span> <span class="sc">*</span>(value <span class="sc">/</span> prev_value <span class="sc">-</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        date value prev_value pct_change
+1 2025-11-15     1         NA         NA
+2 2025-11-16     5          1        400
+3 2025-11-17    10          5        100
+4 2025-11-18    25         10        150
+5 2025-11-19    50         25        100
+6 2025-11-20   100         50        100
+7 2025-11-21   500        100        400</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="conditional-manipulations" class="level2">
+<h2 class="anchored" data-anchor-id="conditional-manipulations">Conditional Manipulations</h2>
+<p>As we have seen, the <code>mutate</code> command can be used to perform a transformation to all rows. Sometimes, we only want to perform a transformation to certain rows or to perform different transformations depending on the values of one or more columns. In this context, things like <code>if_else</code> and <code>case_when</code> may be useful:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">x_pos_squared =</span> <span class="fu">if_else</span>(x <span class="sc">&gt;</span> <span class="dv">0</span>, x<span class="sc">^</span><span class="dv">2</span>, <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   x x_pos_squared
+1 -3             0
+2 -2             0
+3 -1             0
+4  0             0
+5  1             1
+6  2             4
+7  3             9</code></pre>
+</div>
+</div>
+<p>Here, the <code>if_else</code> command checks whether the condition is true (if <code>x</code> is positive): if it is, we get the value of the first argument (<code>x^2</code>); if it is not true, we get the second (<code>0</code>).</p>
+<p>The <code>case_when</code> operator generalizes this to 3 or more cases:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), </span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">group=</span><span class="fu">c</span>(<span class="st">"cos"</span>, <span class="st">"sin"</span>, <span class="st">"tan"</span>, <span class="st">"cos"</span>, <span class="st">"sin"</span>, <span class="st">"sin"</span>, <span class="st">"tan"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">x_trig =</span> <span class="fu">case_when</span>(</span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>        group <span class="sc">==</span> <span class="st">"cos"</span> <span class="sc">~</span> <span class="fu">cos</span>(x), </span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>        group <span class="sc">==</span> <span class="st">"sin"</span> <span class="sc">~</span> <span class="fu">sin</span>(x), </span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>        group <span class="sc">==</span> <span class="st">"tan"</span> <span class="sc">~</span> <span class="fu">tan</span>(x)</span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a>    ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   x group     x_trig
+1 -3   cos -0.9899925
+2 -2   sin -0.9092974
+3 -1   tan -1.5574077
+4  0   cos  1.0000000
+5  1   sin  0.8414710
+6  2   sin  0.9092974
+7  3   tan -0.1425465</code></pre>
+</div>
+</div>
+<p>Here, the <code>case_when</code> checks the conditions in order to figure out which transformation to apply. The syntax is a bit funny: the expression to the left of the <code>~</code> is the thing checked to see if it is true; the value on the right of the <code>~</code> is the value returned. Because of this, you can set defaults by putting a <code>TRUE ~</code> in the final case:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), </span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">group=</span><span class="fu">c</span>(<span class="st">"cos"</span>, <span class="st">"sin"</span>, <span class="st">"unknown"</span>, <span class="st">"cos"</span>, <span class="st">"sin"</span>, <span class="st">"sin"</span>, <span class="st">"unknown"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">x_trig =</span> <span class="fu">case_when</span>(</span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>        group <span class="sc">==</span> <span class="st">"cos"</span> <span class="sc">~</span> <span class="fu">cos</span>(x), </span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>        group <span class="sc">==</span> <span class="st">"sin"</span> <span class="sc">~</span> <span class="fu">sin</span>(x), </span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a>        <span class="cn">TRUE</span>  <span class="sc">~</span> <span class="cn">NA</span></span>
+<span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a>    ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   x   group     x_trig
+1 -3     cos -0.9899925
+2 -2     sin -0.9092974
+3 -1 unknown         NA
+4  0     cos  1.0000000
+5  1     sin  0.8414710
+6  2     sin  0.9092974
+7  3 unknown         NA</code></pre>
+</div>
+</div>
+<p>Note that this is all still evaluated row-by-row independently. If you want to do groupwise operations, you need a <code>group_by</code> and likely a <code>summarize</code> to follow.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(species) <span class="sc">|&gt;</span></span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">label =</span> <span class="fu">case_when</span>(</span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>        body_mass <span class="sc">==</span> <span class="fu">max</span>(body_mass, <span class="at">na.rm=</span><span class="cn">TRUE</span>) <span class="sc">~</span> <span class="st">"Biggest of Species"</span>, </span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>        body_mass <span class="sc">==</span> <span class="fu">min</span>(body_mass, <span class="at">na.rm=</span><span class="cn">TRUE</span>) <span class="sc">~</span> <span class="st">"Smallest of Species"</span>, </span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>        <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"In the middle"</span></span>
+<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a>    ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 9
+# Groups:   species [3]
+   species island    bill_len bill_dep flipper_len body_mass sex     year label 
+   &lt;fct&gt;   &lt;fct&gt;        &lt;dbl&gt;    &lt;dbl&gt;       &lt;int&gt;     &lt;int&gt; &lt;fct&gt;  &lt;int&gt; &lt;chr&gt; 
+ 1 Adelie  Torgersen     39.1     18.7         181      3750 male    2007 In th…
+ 2 Adelie  Torgersen     39.5     17.4         186      3800 female  2007 In th…
+ 3 Adelie  Torgersen     40.3     18           195      3250 female  2007 In th…
+ 4 Adelie  Torgersen     NA       NA            NA        NA &lt;NA&gt;    2007 In th…
+ 5 Adelie  Torgersen     36.7     19.3         193      3450 female  2007 In th…
+ 6 Adelie  Torgersen     39.3     20.6         190      3650 male    2007 In th…
+ 7 Adelie  Torgersen     38.9     17.8         181      3625 female  2007 In th…
+ 8 Adelie  Torgersen     39.2     19.6         195      4675 male    2007 In th…
+ 9 Adelie  Torgersen     34.1     18.1         193      3475 &lt;NA&gt;    2007 In th…
+10 Adelie  Torgersen     42       20.2         190      4250 &lt;NA&gt;    2007 In th…
+# ℹ 334 more rows</code></pre>
+</div>
+</div>
+<p>Here, as always, the <code>min</code> and <code>max</code> are computed groupwise, <em>i.e.</em>, per species, because of the <code>group_by</code> that comes before.</p>
+<div class="callout callout-style-default callout-caution callout-titled" title="Extra: Multi-Column Operations">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Extra: Multi-Column Operations
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We sometimes do need to put multiple columns together, <em>e.g.</em>, to get the student’s highest score on three attempts at a test. This <em>can</em> be done with the <code>c_across</code> operator, but I honestly find it a bit confusing and prefer to do some pivot magic:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>student_grades <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>    <span class="sc">~</span>name,    <span class="sc">~</span>test1, <span class="sc">~</span>test2, <span class="sc">~</span>test3, </span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Alice"</span>,      <span class="dv">90</span>,     <span class="dv">80</span>,    <span class="dv">100</span>,</span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Bob"</span>,        <span class="dv">90</span>,     <span class="dv">90</span>,     <span class="dv">80</span>,</span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Carol"</span>,      <span class="dv">50</span>,    <span class="dv">100</span>,    <span class="dv">100</span>,</span>
+<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Dave"</span>,      <span class="dv">100</span>,      <span class="dv">0</span>,      <span class="dv">0</span>)</span>
+<span id="cb61-7"><a href="#cb61-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-8"><a href="#cb61-8" aria-hidden="true" tabindex="-1"></a>student_grades <span class="sc">|&gt;</span> </span>
+<span id="cb61-9"><a href="#cb61-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rowwise</span>() <span class="sc">|&gt;</span> <span class="co"># Make each row its own group so that we don't accidentally combine</span></span>
+<span id="cb61-10"><a href="#cb61-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">max_test =</span> <span class="fu">max</span>(<span class="fu">c_across</span>(<span class="fu">c</span>(test1, test2, test3))), </span>
+<span id="cb61-11"><a href="#cb61-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">avg_test =</span> <span class="fu">mean</span>(<span class="fu">c_across</span>(<span class="fu">c</span>(test1, test2, test3))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 6
+# Rowwise: 
+  name  test1 test2 test3 max_test avg_test
+  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+1 Alice    90    80   100      100     90  
+2 Bob      90    90    80       90     86.7
+3 Carol    50   100   100      100     83.3
+4 Dave    100     0     0      100     33.3</code></pre>
+</div>
+</div>
+<p>This is pretty fragile and a bit slow due to the <code>rowwise()</code> operator which makes every row its own groups, so I personally find the <code>pivot</code> approach easier for this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr) <span class="co"># For pivot_longer</span></span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>student_grades <span class="sc">|&gt;</span></span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="fu">c</span>(test1, test2, test3), </span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">names_to=</span><span class="st">"test"</span>, </span>
+<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">values_to=</span><span class="st">"score"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(name) <span class="sc">|&gt;</span></span>
+<span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">max_test =</span> <span class="fu">max</span>(score), </span>
+<span id="cb63-8"><a href="#cb63-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">avg_test =</span> <span class="fu">mean</span>(score)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 3
+  name  max_test avg_test
+  &lt;chr&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+1 Alice      100     90  
+2 Bob         90     86.7
+3 Carol      100     83.3
+4 Dave       100     33.3</code></pre>
+</div>
+</div>
+<p>But <em>chacun à son goût</em>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+<p>Answer the following questions using the various techniques described above.</p>
+<ol type="1">
+<li><p>Identify the top 5 days by largest fraction of flights delayed.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<pre class="{webr}"><code>flights |&gt; 
+    group_by(year, month, day) |&gt; 
+    summarize(frac_delayed = mean(dep_delay &gt; 0, na.rm=TRUE)) |&gt; 
+    ungroup() |&gt; 
+    mutate(delayed_rank = dense_rank(desc(frac_delayed))) |&gt;
+    slice_max(frac_delayed, n=5)</code></pre>
+</div>
+<p>Note a few points of danger to be aware of here:</p>
+<ol type="1">
+<li><code>dense_rank</code> and company sort in ascending order, so we need to use the <code>desc</code> modifier to reverse the rankings.</li>
+<li>You have to <code>ungroup</code> after <code>summarize</code> or you will do rankings <em>within</em> each group (here, month), which gives incorrect values.</li>
+</ol>
+<p>If you want to modify your code to make the result a bit more attractive, this snippet has some useful tricks:</p>
+<div class="cell">
+<pre class="{webr}"><code>flights |&gt; 
+    group_by(year, month, day) |&gt; 
+    summarize(frac_delayed = mean(dep_delay &gt; 0, na.rm=TRUE), 
+              n_delayed = sum(dep_delay &gt; 0, na.rm=TRUE), 
+              n_total = n()) |&gt; 
+    ungroup() |&gt; 
+    mutate(delayed_rank = dense_rank(desc(frac_delayed))) |&gt;
+    slice_max(frac_delayed, n=5) |&gt;
+    mutate(date = ymd(paste(year, month, day, sep="-")), 
+           Date = strftime(date, "%B %d, %Y"), 
+           `Percent Delayed` = round(frac_delayed * 100, 2), 
+           `Ranking` = delayed_rank) |&gt;
+    select(Ranking, `Percent Delayed`, Date)</code></pre>
+</div>
+</div>
+</div>
+</div></li>
+<li><p>Create a table of the daily YTD mean average departure delay for all flights departing Newark airport.</p>
+<p><em>Hint</em>: You can first group by days and compute daily averages, then compute the YTD quantities or you can compute a cumulative statistic over all flights and then take end of day values using <code>last()</code>. These are slightly different, but should not differ greatly, as they essentially just vary in whether days are weighted by number of flights.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>First approach:</p>
+<div class="cell">
+<pre class="{webr}"><code>flights |&gt; 
+    filter(origin == "EWR", 
+           !is.na(dep_delay)) |&gt;
+    group_by(year, month, day) |&gt;
+    summarize(mean_dep_delay  = mean(dep_delay)) |&gt; 
+    ungroup() |&gt;
+    mutate(ytd_mean_dep_delay = cummean(mean_dep_delay))</code></pre>
+</div>
+<p>Second approach:</p>
+<div class="cell">
+<pre class="{webr}"><code>flights |&gt; 
+    filter(origin == "EWR", 
+           !is.na(dep_delay)) |&gt; 
+    arrange(year, month, day, dep_time) |&gt;
+    mutate(ytd_avg_delay = cummean(dep_delay)) |&gt;
+    group_by(year, month, day) |&gt; 
+    summarize(ytd_avg_delay = last(ytd_avg_delay)) |&gt; 
+    ungroup() </code></pre>
+</div>
+</div>
+</div>
+</div></li>
+<li><p>Which day had the largest increase in number of delayed flights over the previous day?</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<pre class="{webr}"><code>flights |&gt; 
+    group_by(year, month, day) |&gt; 
+    summarize(n_delayed = sum((dep_delay &gt; 0) | (is.na(dep_delay)))) |&gt; 
+    ungroup() |&gt; 
+    mutate(increase_delays = n_delayed - lag(n_delayed)) |&gt;
+    slice_max(increase_delays, n=5)</code></pre>
+</div>
+</div>
+</div>
+</div></li>
+<li><p>To this point, we have looked at average delay using both the positive and negative values in that column. This gives airlines ‘credit’ for flights that leave early, but may understate the true delays experienced by passengers. Create a new column measuring <em>real</em> delays by setting negative delays (early departures) to zero and compute the average delay per airline.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<pre class="{webr}"><code>flights |&gt; 
+    filter(!is.na(dep_delay)) |&gt; 
+    mutate(real_dep_delay = if_else(dep_delay &lt; 0, 0, dep_delay)) |&gt;
+    group_by(carrier) |&gt; 
+    summarize(avg_real_delay = mean(real_dep_delay, na.rm=TRUE)) |&gt;
+    arrange(desc(avg_real_delay))</code></pre>
+</div>
+</div>
+</div>
+</div></li>
+<li><p>Using your average real delay statistics, which airline has the largest difference in average delay with and without credit for early departures.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<pre class="{webr}"><code>flights |&gt; 
+    filter(!is.na(dep_delay)) |&gt; 
+    mutate(real_dep_delay = if_else(dep_delay &lt; 0, 0, dep_delay)) |&gt;
+    group_by(carrier) |&gt; 
+    summarize(
+        avg_delay = mean(dep_delay, na.rm=TRUE), 
+        avg_real_delay = mean(real_dep_delay, na.rm=TRUE)) |&gt;
+    mutate(diff_delay = avg_real_delay - avg_delay) |&gt;
+    inner_join(airlines, join_by(carrier == carrier)) |&gt;
+    arrange(desc(avg_real_delay)) |&gt;
+    rename(Airline = name, 
+           `Avg Delay (with credit)` = avg_delay, 
+           `Avg Delay (w/o credit)` = avg_real_delay, 
+           `Difference` = diff_delay) |&gt;
+    select(Airline, everything()) |&gt;
+    select(-carrier)</code></pre>
+</div>
+<p>I have included a few extra steps to optimize formatting near the end.</p>
+</div>
+</div>
+</div></li>
+</ol>
+
+
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Note that some <code>SQL</code> engines use <code>LEFT OUTER JOIN</code> than <code>LEFT JOIN</code>. Because <code>OUTER</code> is a bit ambiguous, <code>dplyr</code> emphasizes <code>full_</code> vs <code>left_</code> in its function naming. Also note the convention of <code>dplyr</code> names - lower case, underscore separated - and that it differs from <code>SQL</code> syntax.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/Ghirschhorn\.github\.io\/STA9750-2025-FALL\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
