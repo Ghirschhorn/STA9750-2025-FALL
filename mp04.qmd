@@ -730,7 +730,7 @@ ggplot(frac_neg |> mutate(period = factor(period, levels = c("Pre-2000", "Post-2
     axis.text = element_text(size = 8)
   )
 ```
-A two-sample test comparing the share of negative CES revisions pre-2020 and post-2020 reinforces that the proportions are nearly identical. The test statistic (X<sup>2</sup> = 0.608) and large p-value (0.782) indicate no meaningful statistical difference, while the confidence interval (-1.000 to 0.109) confirms that the true gap could nearly be zero. 
+A separate two-sample test performed earlier in the analysis compared the fraction of negative CES revisions before and after 2020 to assess more recent changes. The test statistic (X<sup>2</sup> = 0.608) and large p-value (0.782) indicate no meaningful statistical difference, while the confidence interval (-1.000 to 0.109) confirms that any gap is minimal. This reinforces the broader conclusion that CES revisions have remained stable over time. 
 
 Conclusion: These findings provide no evidence that revisions have suddenly become erratic or politically motivated, directly undermining the claim that CES revisions "are all over the place."
 
